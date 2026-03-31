@@ -1,6 +1,9 @@
+import { describe, it, expect, beforeEach } from 'vitest';
 import { TestBed } from '@angular/core/testing';
 import { RouterModule } from '@angular/router';
-import { App } from './app';
+import { App } from './app.component';
+import { Navbar } from './shared/components/navbar/navbar.component';
+import { Footer } from './shared/components/footer/footer.component';
 
 describe('App', () => {
   beforeEach(async () => {
@@ -9,7 +12,9 @@ describe('App', () => {
         RouterModule.forRoot([])
       ],
       declarations: [
-        App
+        App,
+        Navbar,
+        Footer
       ],
     }).compileComponents();
   });
@@ -20,10 +25,12 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should contain the application shell', () => {
     const fixture = TestBed.createComponent(App);
-    await fixture.whenStable();
+    fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, frontend');
+    expect(compiled.querySelector('app-navbar')).toBeTruthy();
+    expect(compiled.querySelector('router-outlet')).toBeTruthy();
+    expect(compiled.querySelector('app-footer')).toBeTruthy();
   });
 });

@@ -1,0 +1,21 @@
+// VIMU WEB 2.0 - Design System Tokens
+
+:root {
+  // Colors
+  --vimu-bg:             #0a0a0c;
+  --vimu-surface:        #141416;
+  --vimu-surface-high:   #1e1e20;
+  --vimu-surface-higher: #2a2a2c;
+  --vimu-text-primary:   #f8f8f8;
+  --vimu-text-secondary: #a1a1aa;
+  --vimu-text-muted:     #71717a;
+  --vimu-border:         #27272a;
+  
+  // Accent Color (VIMU Cyan)
+  --vimu-accent:         #00f0ff;
+  --vimu-accent-glow:    rgba(0, 240, 255, 0.15);
+
+  // Fonts
+  --vimu-font-heading: 'Neue Regrade', sans-serif;
+  --vimu-font-body: 'Inter', sans-serif;
+}

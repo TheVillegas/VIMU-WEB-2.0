@@ -1,0 +1,64 @@
+@use './variables' as *;
+
+/* Global resets & scrollbar */
+:root {
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--vimu-bg);
+  color: var(--vimu-text-primary);
+  font-family: var(--vimu-font-body);
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--vimu-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vimu-surface-high);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vimu-accent);
+}
+
+/* Utility Classes */
+.glass-effect {
+  background: rgba(10, 10, 12, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hero-text {
+  font-family: var(--vimu-font-heading);
+  font-size: var(--vimu-font-size-hero);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+.section-title {
+  font-family: var(--vimu-font-heading);
+  font-size: var(--vimu-font-size-section);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.text-body-lg {
+  font-size: var(--vimu-font-size-body-lg);
+}
+
+/* Custom Selection */
+::selection {
+  background: var(--vimu-accent);
+  color: var(--vimu-bg);
+}

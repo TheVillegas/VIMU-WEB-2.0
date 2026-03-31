@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --color-vimu-bg: var(--vimu-bg);
+  --color-vimu-surface: var(--vimu-surface);
+  --color-vimu-surface-high: var(--vimu-surface-high);
+  --color-vimu-accent: var(--vimu-accent);
+  --color-vimu-border: var(--vimu-border);
+  --color-vimu-text-primary: var(--vimu-text-primary);
+  --color-vimu-text-secondary: var(--vimu-text-secondary);
+  --color-vimu-text-muted: var(--vimu-text-muted);
+
+  --font-heading: var(--vimu-font-heading);
+  --font-body: var(--vimu-font-body);
+  
+  --font-size-hero: 8rem;
+  --font-size-section: 4.5rem;
+  --font-size-body-lg: 1.25rem;
+
+  --animate-infinity-scroll: infinity-scroll 30s linear infinite;
+
+  @keyframes infinity-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
