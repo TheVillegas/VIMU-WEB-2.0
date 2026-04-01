@@ -1,0 +1,62 @@
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero {
+  @apply min-h-screen flex flex-col justify-center px-8 relative overflow-hidden;
+
+  &__glow {
+    @apply absolute rounded-full pointer-events-none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: rgba(0, 240, 255, 0.15);
+    filter: blur(120px);
+  }
+
+  &__content {
+    @apply max-w-7xl mx-auto w-full;
+    position: relative;
+    z-index: 10;
+  }
+
+  &__title {
+    @apply text-vimu-text-primary mb-8 font-heading font-extrabold;
+    font-size: var(--vimu-font-size-hero);
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+    &-accent {
+      @apply text-vimu-accent;
+    }
+  }
+
+  &__subtitle {
+    @apply text-vimu-text-secondary max-w-2xl mb-12 leading-relaxed;
+    font-size: var(--vimu-font-size-body-lg);
+  }
+
+  &__actions {
+    @apply flex gap-6;
+  }
+
+  &__cta {
+    @apply px-8 py-4 font-bold rounded-lg;
+
+    &--primary {
+      @apply bg-vimu-text-primary text-vimu-bg transition-transform;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    &--secondary {
+      @apply border border-vimu-border text-vimu-text-primary hover:bg-vimu-surface transition-colors flex items-center gap-2;
+    }
+  }
+}

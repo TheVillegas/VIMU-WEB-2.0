@@ -1,31 +1,22 @@
-<nav class="glass flex items-center justify-between px-8 py-4 mt-4 mx-4 rounded-xl border-vimu-border">
-  <!-- Logo (Neue Regrade fallback) -->
-  <a href="/" class="text-vimu-text-primary text-2xl font-black tracking-tighter uppercase font-heading">
-    VIMU DEVS
-  </a>
+<nav class="navbar">
+  <a href="/" class="navbar__logo">VIMU DEVS</a>
 
-  <!-- Desktop Navigation -->
-  <div class="hidden md:flex items-center gap-8">
+  <div class="navbar__nav">
     @for (link of navLinks; track link.label) {
-      <button 
-        (click)="scrollTo(link.fragment)"
-        class="text-vimu-text-secondary hover:text-vimu-text-primary transition-colors text-sm font-medium tracking-wide uppercase"
-      >
+      <button class="navbar__nav-link" (click)="scrollTo(link.fragment)">
         {{ link.label }}
       </button>
     }
-    
-    <!-- CTA: Agendar -->
-    <a 
-      href="#agendar"
-      class="px-6 py-2 border border-vimu-accent text-vimu-accent hover:bg-vimu-accent hover:text-vimu-bg transition-all rounded-lg text-sm font-bold uppercase"
-    >
-      Agendar Llamada
-    </a>
+    <a href="#agendar" class="navbar__cta">Agendar Llamada</a>
   </div>
 
-  <!-- Mobile Hamburger Placeholder -->
-  <button class="md:hidden text-vimu-text-primary">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+  <button class="navbar__hamburger">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+      fill="none" stroke="currentColor" stroke-width="2"
+      stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" x2="21" y1="6" y2="6"/>
+      <line x1="3" x2="21" y1="12" y2="12"/>
+      <line x1="3" x2="21" y1="18" y2="18"/>
+    </svg>
   </button>
 </nav>

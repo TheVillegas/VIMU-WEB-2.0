@@ -1,1 +1,17 @@
-<p>logo-strip works!</p>
+<div class="logo-strip">
+  <div class="logo-strip__fade logo-strip__fade--left"></div>
+  <div class="logo-strip__fade logo-strip__fade--right"></div>
+
+  <div class="logo-strip__track">
+    <div class="logo-strip__group">
+      @for (logo of logos; track $index) {
+        <span class="logo-strip__item">{{ logo }}</span>
+      }
+    </div>
+    <div class="logo-strip__group">
+      @for (logo of logos; track $index) {
+        <span class="logo-strip__item">{{ logo }}</span>
+      }
+    </div>
+  </div>
+</div>

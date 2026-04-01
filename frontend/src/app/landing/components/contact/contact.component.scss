@@ -1,0 +1,128 @@
+:host {
+  display: block;
+}
+
+.contact {
+  @apply bg-vimu-surface py-32 px-8;
+
+  &__wrapper {
+    @apply max-w-7xl mx-auto flex flex-col gap-20;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
+  &__text {
+    @apply max-w-3xl;
+  }
+
+  &__eyebrow {
+    @apply text-vimu-accent text-xs font-bold uppercase tracking-widest mb-4 block;
+  }
+
+  &__title {
+    @apply text-vimu-text-primary mb-8 font-heading font-extrabold lowercase;
+    font-size: var(--vimu-font-size-hero);
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+
+    &-accent {
+      @apply text-vimu-accent;
+    }
+  }
+
+  &__subtitle {
+    @apply text-vimu-text-secondary max-w-xl;
+    font-size: var(--vimu-font-size-body-lg);
+  }
+
+  &__channels {
+    @apply flex flex-col gap-6 w-full;
+
+    @media (min-width: 768px) {
+      width: auto;
+    }
+  }
+
+  &__channel {
+    @apply flex items-center justify-between p-6 rounded-2xl transition-all;
+    text-decoration: none;
+
+    &:hover {
+      .contact__channel-arrow {
+        opacity: 1;
+      }
+    }
+
+    &--email {
+      @apply bg-vimu-bg border border-vimu-border;
+
+      &:hover {
+        @apply border-vimu-accent;
+      }
+
+      .contact__channel-icon {
+        @apply text-vimu-accent;
+        background: rgba(0, 240, 255, 0.1);
+      }
+
+      .contact__channel-label {
+        @apply text-vimu-text-muted;
+      }
+
+      .contact__channel-arrow {
+        @apply text-vimu-accent;
+      }
+    }
+
+    &--whatsapp {
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      background: rgba(37, 211, 102, 0.1);
+
+      &:hover {
+        border-color: #25D366;
+      }
+
+      .contact__channel-icon {
+        background: rgba(37, 211, 102, 0.2);
+        color: #25D366;
+      }
+
+      .contact__channel-label {
+        color: rgba(37, 211, 102, 0.7);
+      }
+
+      .contact__channel-arrow {
+        color: #25D366;
+      }
+    }
+  }
+
+  &__channel-info {
+    @apply flex items-center gap-4;
+  }
+
+  &__channel-icon {
+    @apply w-12 h-12 rounded-full flex items-center justify-center;
+  }
+
+  &__channel-meta {
+    @apply flex flex-col;
+  }
+
+  &__channel-label {
+    @apply block text-xs uppercase tracking-widest;
+  }
+
+  &__channel-value {
+    @apply text-vimu-text-primary font-bold;
+  }
+
+  &__channel-arrow {
+    opacity: 0;
+    @apply transition-opacity;
+  }
+}

@@ -4,15 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-navbar',
   standalone: false,
   templateUrl: './navbar.component.html',
-  styles: [`
-    :host {
-      display: block;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
-  `]
+  styleUrls: ['./navbar.component.scss']
 })
 export class Navbar {
   navLinks = [

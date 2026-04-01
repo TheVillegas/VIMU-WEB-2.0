@@ -1,0 +1,78 @@
+:host {
+  display: block;
+}
+
+.services {
+  @apply px-8 flex flex-col items-center;
+
+  &__wrapper {
+    @apply max-w-7xl w-full;
+  }
+
+  &__header {
+    @apply mb-20;
+  }
+
+  &__eyebrow {
+    @apply text-vimu-accent text-xs font-bold uppercase tracking-widest mb-4 block;
+  }
+
+  &__title {
+    @apply text-vimu-text-primary font-heading font-bold;
+    font-size: var(--vimu-font-size-section);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  &__grid {
+    @apply grid grid-cols-1 gap-8;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__card {
+    @apply p-8 rounded-2xl bg-vimu-surface-high border border-vimu-border/30 transition-all duration-500;
+
+    &:hover {
+      @apply border-vimu-accent/50;
+      transform: translateY(-0.5rem);
+
+      .services__card-icon {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__card-icon {
+    @apply mb-6 text-vimu-accent transition-transform duration-500;
+  }
+
+  &__card-icon-wrapper {
+    @apply w-12 h-12 rounded-lg flex items-center justify-center;
+    background: rgba(0, 240, 255, 0.1);
+  }
+
+  &__card-title {
+    @apply text-vimu-text-primary text-xl font-bold mb-4;
+  }
+
+  &__card-description {
+    @apply text-vimu-text-secondary text-sm leading-relaxed mb-6;
+  }
+
+  &__card-list {
+    @apply space-y-3;
+  }
+
+  &__card-item {
+    @apply flex items-center gap-2 text-vimu-text-muted text-xs;
+  }
+
+  &__card-dot {
+    @apply bg-vimu-accent rounded-full flex-shrink-0;
+    width: 0.25rem;
+    height: 0.25rem;
+  }
+}

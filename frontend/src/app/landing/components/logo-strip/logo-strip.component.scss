@@ -1,0 +1,49 @@
+:host {
+  display: block;
+}
+
+.logo-strip {
+  @apply py-12 overflow-hidden relative;
+  border-top: 1px solid rgba(39, 39, 42, 0.2);
+  border-bottom: 1px solid rgba(39, 39, 42, 0.2);
+  background-color: #000;
+
+  &__fade {
+    @apply absolute inset-y-0 z-10 pointer-events-none;
+    width: 8rem;
+
+    &--left {
+      left: 0;
+      background: linear-gradient(to right, #000 0%, transparent 100%);
+    }
+
+    &--right {
+      right: 0;
+      background: linear-gradient(to left, #000 0%, transparent 100%);
+    }
+  }
+
+  &__track {
+    @apply flex whitespace-nowrap animate-infinity-scroll;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  &__group {
+    @apply flex items-center gap-20 px-10;
+  }
+
+  &__item {
+    @apply text-vimu-text-muted transition-opacity text-2xl font-bold uppercase tracking-widest font-heading;
+    opacity: 0.4;
+    filter: grayscale(100%);
+    transition: opacity 0.2s ease, filter 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+      filter: grayscale(0);
+    }
+  }
+}

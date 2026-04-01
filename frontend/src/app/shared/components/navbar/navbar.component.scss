@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar {
+  @apply flex items-center justify-between px-8 py-4 mt-4 mx-4 rounded-xl;
+  border: 1px solid var(--vimu-border);
+  background: rgba(10, 10, 12, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  &__logo {
+    @apply text-vimu-text-primary text-2xl font-black tracking-tighter uppercase font-heading;
+    text-decoration: none;
+  }
+
+  &__nav {
+    @apply hidden items-center gap-8;
+
+    @media (min-width: 768px) {
+      display: flex;
+    }
+  }
+
+  &__nav-link {
+    @apply text-vimu-text-secondary hover:text-vimu-text-primary transition-colors text-sm font-medium tracking-wide uppercase;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  &__cta {
+    @apply px-6 py-2 border border-vimu-accent text-vimu-accent hover:bg-vimu-accent hover:text-vimu-bg transition-all rounded-lg text-sm font-bold uppercase;
+    text-decoration: none;
+  }
+
+  &__hamburger {
+    @apply text-vimu-text-primary;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+}

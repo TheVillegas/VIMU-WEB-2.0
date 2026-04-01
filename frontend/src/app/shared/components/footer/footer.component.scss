@@ -1,0 +1,80 @@
+:host {
+  display: block;
+}
+
+.footer {
+  @apply bg-vimu-bg px-8 py-16;
+  border-top: 1px solid rgba(39, 39, 42, 0.2);
+
+  &__grid {
+    @apply max-w-7xl mx-auto grid grid-cols-1 gap-12;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  &__brand {
+    @media (min-width: 768px) {
+      grid-column: span 2;
+    }
+  }
+
+  &__brand-name {
+    @apply text-vimu-text-primary text-xl font-black uppercase tracking-tighter mb-4 font-heading;
+  }
+
+  &__brand-description {
+    @apply text-vimu-text-secondary text-sm max-w-xs leading-relaxed;
+  }
+
+  &__section {
+    @apply flex flex-col;
+  }
+
+  &__section-title {
+    @apply text-vimu-text-primary text-xs font-bold uppercase tracking-widest mb-6;
+  }
+
+  &__nav {
+    @apply flex flex-col gap-4;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__nav-item {
+    display: block;
+  }
+
+  &__nav-link {
+    @apply text-vimu-text-muted hover:text-vimu-text-primary transition-colors text-sm;
+    text-decoration: none;
+  }
+
+  &__bottom {
+    @apply max-w-7xl mx-auto mt-16 pt-8 flex flex-col gap-4;
+    border-top: 1px solid rgba(39, 39, 42, 0.1);
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__copyright {
+    @apply text-vimu-text-muted uppercase tracking-widest;
+    font-size: 0.625rem;
+  }
+
+  &__legal {
+    @apply flex gap-8;
+  }
+
+  &__legal-link {
+    @apply text-vimu-text-muted hover:text-vimu-text-primary uppercase tracking-widest transition-colors;
+    font-size: 0.625rem;
+    text-decoration: none;
+  }
+}
