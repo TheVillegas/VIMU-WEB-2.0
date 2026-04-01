@@ -1,0 +1,152 @@
+<app-navbar></app-navbar>
+
+<main class="agendar">
+  <div class="agendar__inner container">
+
+    <div class="agendar__header">
+      <a routerLink="/" class="agendar__back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5"/><path d="m12 19-7-7 7-7"/>
+        </svg>
+        Volver
+      </a>
+      <span class="agendar__eyebrow">Agendar Llamada</span>
+      <h1 class="agendar__title">
+        Contanos sobre<br>
+        <span class="agendar__title-muted">tu proyecto.</span>
+      </h1>
+      <p class="agendar__subtitle">
+        Completá el formulario y nos ponemos en contacto dentro de las 24hs
+        para coordinar una llamada sin compromiso.
+      </p>
+    </div>
+
+    <form class="agendar__form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+
+      <div class="agendar__row agendar__row--two">
+        <div class="agendar__field">
+          <label class="agendar__label" for="nombre">Nombre completo *</label>
+          <input
+            class="agendar__input"
+            [class.agendar__input--error]="submitted && f['nombre'].errors"
+            id="nombre" type="text" formControlName="nombre"
+            placeholder="Tu nombre">
+          @if (submitted && f['nombre'].errors) {
+            <span class="agendar__error">Nombre requerido (mínimo 2 caracteres)</span>
+          }
+        </div>
+
+        <div class="agendar__field">
+          <label class="agendar__label" for="email">Email *</label>
+          <input
+            class="agendar__input"
+            [class.agendar__input--error]="submitted && f['email'].errors"
+            id="email" type="email" formControlName="email"
+            placeholder="vos@empresa.com">
+          @if (submitted && f['email'].errors) {
+            <span class="agendar__error">Email válido requerido</span>
+          }
+        </div>
+      </div>
+
+      <div class="agendar__row agendar__row--two">
+        <div class="agendar__field">
+          <label class="agendar__label" for="telefono">Teléfono</label>
+          <input
+            class="agendar__input"
+            id="telefono" type="tel" formControlName="telefono"
+            placeholder="+56 9 XXXX XXXX">
+        </div>
+
+        <div class="agendar__field">
+          <label class="agendar__label" for="empresa">Empresa / Startup</label>
+          <input
+            class="agendar__input"
+            id="empresa" type="text" formControlName="empresa"
+            placeholder="Nombre de tu empresa (opcional)">
+        </div>
+      </div>
+
+      <div class="agendar__row agendar__row--three">
+        <div class="agendar__field">
+          <label class="agendar__label" for="project_type">Tipo de proyecto *</label>
+          <select
+            class="agendar__select"
+            [class.agendar__select--error]="submitted && f['project_type'].errors"
+            id="project_type" formControlName="project_type">
+            <option value="" disabled selected>Seleccioná una opción</option>
+            @for (opt of projectTypes; track opt.value) {
+              <option [value]="opt.value">{{ opt.label }}</option>
+            }
+          </select>
+          @if (submitted && f['project_type'].errors) {
+            <span class="agendar__error">Seleccioná un tipo de proyecto</span>
+          }
+        </div>
+
+        <div class="agendar__field">
+          <label class="agendar__label" for="timeline">Urgencia / Timeline *</label>
+          <select
+            class="agendar__select"
+            [class.agendar__select--error]="submitted && f['timeline'].errors"
+            id="timeline" formControlName="timeline">
+            <option value="" disabled selected>Seleccioná una opción</option>
+            @for (opt of timelines; track opt.value) {
+              <option [value]="opt.value">{{ opt.label }}</option>
+            }
+          </select>
+          @if (submitted && f['timeline'].errors) {
+            <span class="agendar__error">Seleccioná un timeline</span>
+          }
+        </div>
+
+        <div class="agendar__field">
+          <label class="agendar__label" for="budget_tier">Presupuesto aproximado *</label>
+          <select
+            class="agendar__select"
+            [class.agendar__select--error]="submitted && f['budget_tier'].errors"
+            id="budget_tier" formControlName="budget_tier">
+            <option value="" disabled selected>Seleccioná un rango</option>
+            @for (opt of budgetTiers; track opt.value) {
+              <option [value]="opt.value">{{ opt.label }}</option>
+            }
+          </select>
+          @if (submitted && f['budget_tier'].errors) {
+            <span class="agendar__error">Seleccioná un rango de presupuesto</span>
+          }
+        </div>
+      </div>
+
+      <div class="agendar__field">
+        <label class="agendar__label" for="descripcion">Descripción del proyecto *</label>
+        <textarea
+          class="agendar__textarea"
+          [class.agendar__textarea--error]="submitted && f['descripcion'].errors"
+          id="descripcion" formControlName="descripcion" rows="5"
+          placeholder="Contanos brevemente qué querés construir, el problema que resuelve y cualquier detalle relevante...">
+        </textarea>
+        @if (submitted && f['descripcion'].errors) {
+          <span class="agendar__error">Descripción requerida (mínimo 20 caracteres)</span>
+        }
+      </div>
+
+      <div class="agendar__actions">
+        <button type="submit" class="agendar__submit">
+          Enviar y Agendar Llamada
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+          </svg>
+        </button>
+        <span class="agendar__disclaimer">Respondemos dentro de las 24hs hábiles.</span>
+      </div>
+
+    </form>
+
+  </div>
+</main>
+
+<app-footer></app-footer>

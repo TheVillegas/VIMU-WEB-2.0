@@ -1,0 +1,102 @@
+:host { display: block; }
+
+.procesos {
+  padding-block: var(--space-section);
+  background: var(--color-surface);
+
+  &__header {
+    margin-bottom: var(--space-block);
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1.25rem;
+  }
+
+  &__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 6vw, var(--text-section));
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    color: var(--color-text-primary);
+
+    &-muted { color: var(--color-text-muted); }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+
+    @media (max-width: 900px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 540px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    padding: 2.5rem;
+    border-left: 1px solid var(--color-border);
+    transition: background 0.3s ease;
+
+    &:first-child { border-left: none; }
+
+    &:hover {
+      background: var(--color-surface-high);
+
+      .procesos__card-number { color: var(--color-accent); }
+      .procesos__card-line   { background: var(--color-accent); width: 2.5rem; }
+    }
+
+    @media (max-width: 900px) {
+      border-top: 1px solid var(--color-border);
+      border-left: none;
+
+      &:nth-child(2n+1) { border-left: none; }
+    }
+  }
+
+  &__card-number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--color-text-muted);
+    margin-bottom: 1.25rem;
+    transition: color 0.3s ease;
+  }
+
+  &__card-line {
+    width: 1.5rem;
+    height: 2px;
+    background: var(--color-border);
+    margin-bottom: 1.5rem;
+    transition: width 0.3s ease, background 0.3s ease;
+  }
+
+  &__card-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin-bottom: 0.875rem;
+  }
+
+  &__card-description {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+}

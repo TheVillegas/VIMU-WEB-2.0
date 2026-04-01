@@ -8,6 +8,8 @@ import { HeroComponent } from './components/hero/hero.component';
 import { LogoStripComponent } from './components/logo-strip/logo-strip.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ProcesosComponent } from './components/procesos/procesos.component';
+import { NosotrosComponent } from './components/nosotros/nosotros.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent }
@@ -19,7 +21,9 @@ const routes: Routes = [
     HeroComponent,
     LogoStripComponent,
     ServicesComponent,
-    ContactComponent
+    ContactComponent,
+    ProcesosComponent,
+    NosotrosComponent
   ],
   imports: [
     CommonModule,

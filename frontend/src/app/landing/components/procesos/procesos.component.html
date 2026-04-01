@@ -1,0 +1,24 @@
+<section class="procesos" id="procesos">
+  <div class="procesos__inner container">
+
+    <header class="procesos__header">
+      <span class="procesos__eyebrow">Metodología</span>
+      <h2 class="procesos__title">
+        Cómo trabajamos<br>
+        <span class="procesos__title-muted">con vos.</span>
+      </h2>
+    </header>
+
+    <div class="procesos__grid">
+      @for (paso of pasos; track paso.number) {
+        <div class="procesos__card">
+          <span class="procesos__card-number">{{ paso.number }}</span>
+          <div class="procesos__card-line"></div>
+          <h3 class="procesos__card-title">{{ paso.title }}</h3>
+          <p class="procesos__card-description">{{ paso.description }}</p>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>
