@@ -1,0 +1,44 @@
+// ─── VIMU WEB 2.0 — Design System Tokens ────────────────────────────────────
+// Estética: "The Silent Authority"
+// Dark monochromatic, high precision, hierarchy through space + typography.
+// ─────────────────────────────────────────────────────────────────────────────
+
+:root {
+  // Colors
+  --color-bg:             #131313;
+  --color-surface:        #1a1a1a;
+  --color-surface-high:   #2a2a2a;
+  --color-surface-higher: #353534;
+  --color-text-primary:   #e5e2e1;
+  --color-text-secondary: #c7c6c6;
+  --color-text-muted:     #94979e;
+  --color-border:         #474747;
+
+  // Accent — PLACEHOLDER neutral warm gray
+  // TODO: replace with final brand color from tarjeta de presentación VIMU DEVS SpA
+  --color-accent:      #d4d0cb;
+  --color-accent-glow: rgba(212, 208, 203, 0.12);
+
+  // Typography
+  // NOTE: 'Plus Jakarta Sans' is a Neue Regrade substitute.
+  // Replace with licensed Neue Regrade when available.
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  // Type scale (desktop)
+  --text-hero:    11.5625rem; // ~185px
+  --text-section: 5.375rem;  // ~86px
+  --text-heading: 3.3125rem; // ~53px
+  --text-display: 2.0625rem; // ~33px
+  --text-body:    1.25rem;   // ~20px
+  --text-label:   0.8125rem; // ~13px
+
+  // Spacing rhythm
+  --space-section: 10rem;
+  --space-block:   5rem;
+  --space-gap:     2rem;
+
+  // Layout
+  --container-max: 1280px;
+  --container-pad: clamp(1.5rem, 5vw, 5rem);
+}

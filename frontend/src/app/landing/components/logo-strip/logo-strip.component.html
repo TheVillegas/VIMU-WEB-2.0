@@ -1,0 +1,19 @@
+<div class="logo-strip">
+  <p class="logo-strip__intro container">Trabajamos con equipos en</p>
+
+  <div class="logo-strip__track-wrapper">
+    <div class="logo-strip__track">
+      <!-- Two identical groups for seamless infinite loop -->
+      <ul class="logo-strip__group">
+        @for (logo of logos; track $index) {
+          <li class="logo-strip__item">{{ logo }}</li>
+        }
+      </ul>
+      <ul class="logo-strip__group" aria-hidden="true">
+        @for (logo of logos; track $index) {
+          <li class="logo-strip__item">{{ logo }}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>
