@@ -9,8 +9,8 @@
           {{ link.label }}
         </button>
       }
-      <a href="#contacto" class="navbar__cta" (click)="scrollTo('contacto'); $event.preventDefault()">
-        Agendar Llamada
+      <a routerLink="/agendar" class="navbar__cta" (click)="menuOpen.set(false)">
+        Cotiza con nosotros
       </a>
     </nav>
 

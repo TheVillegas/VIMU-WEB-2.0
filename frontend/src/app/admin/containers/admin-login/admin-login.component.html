@@ -1,0 +1,22 @@
+<section class="admin-login">
+  <div class="admin-login__panel">
+    <p class="admin-login__eyebrow t-label">VIMU DEVS / ADMIN ACCESS</p>
+    <h1 class="t-heading">Acceso al panel</h1>
+    <p class="admin-login__copy">Ingresá con tus credenciales para gestionar solicitudes.</p>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="admin-login__form">
+      <label class="admin-login__field">
+        <span>Email</span>
+        <input type="email" formControlName="email" placeholder="admin@vimudevs.com" />
+      </label>
+
+      <label class="admin-login__field">
+        <span>Contraseña</span>
+        <input type="password" formControlName="password" placeholder="••••••••" />
+      </label>
+
+      <button type="submit">Ingresar</button>
+      <p *ngIf="error" class="admin-login__error">{{ error }}</p>
+    </form>
+  </div>
+</section>

@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'agendar',
     loadChildren: () => import('./agendar/agendar.module').then(m => m.AgendarModule)
+  },
+  {
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
   }
 ];
 

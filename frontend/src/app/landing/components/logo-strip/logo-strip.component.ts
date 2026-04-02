@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './logo-strip.component.scss'
 })
 export class LogoStripComponent {
-  // TODO: replace with real client logos (SVG preferred, monochrome)
-  logos = ['VIMU AI', 'DIGITAL SOUL', 'TECH ARCH', 'CLOUD CORE', 'DEV FLOW', 'SILENT CODE', 'BUILD LAB', 'STACK IO'];
+  //En vez de titulos de las tecnologias, poner los logos oficiales
+  logos = ['Angular', 'Astro', 'React', 'PostgreSQL', 'Python', 'Node.js', 'TypeScript', 'PostgreSQL'];
 }

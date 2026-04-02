@@ -33,6 +33,11 @@
             "assets": [
               {
                 "glob": "**/*",
+                "input": "src/assests",
+                "output": "assets"
+              },
+              {
+                "glob": "**/*",
                 "input": "public"
               }
             ],

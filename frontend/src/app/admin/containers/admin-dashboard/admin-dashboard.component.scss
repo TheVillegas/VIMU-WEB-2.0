@@ -1,0 +1,100 @@
+.admin-dashboard {
+  min-height: 100vh;
+  padding: 2rem;
+  background: var(--admin-bg);
+  color: var(--admin-text);
+}
+
+.admin-dashboard__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.admin-dashboard__tabs {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.admin-dashboard__tab {
+  background: var(--admin-surface-alt);
+  border: 1px solid var(--admin-border);
+  border-radius: 999px;
+  color: var(--admin-text);
+  padding: 0.6rem 1rem;
+}
+
+.admin-dashboard__tab--active {
+  border-color: var(--admin-accent);
+  box-shadow: 0 0 0 1px var(--admin-accent) inset;
+}
+
+.admin-dashboard__stats article,
+.admin-dashboard__row {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  padding: 1rem;
+}
+
+.admin-dashboard__table { display: grid; gap: 0.75rem; }
+.admin-dashboard__row { display: grid; grid-template-columns: 2fr 2fr 1fr 1fr 2fr; gap: 1rem; align-items: center; }
+.admin-dashboard__row--head { font-weight: 700; color: var(--admin-text-muted); }
+.admin-dashboard__actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.admin-dashboard__actions button { background: var(--admin-surface-alt); border: 1px solid var(--admin-border); color: var(--admin-text); padding: 0.6rem 0.8rem; }
+
+.admin-dashboard__link { color: inherit; text-decoration: none; }
+.admin-dashboard__link:hover { text-decoration: underline; }
+
+.admin-dashboard__company {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.admin-dashboard__avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  background: var(--admin-surface-alt);
+  border: 1px solid var(--admin-border);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.admin-dashboard__status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  width: fit-content;
+}
+
+.admin-dashboard__status--nuevo { background: var(--admin-status-nuevo-bg); color: var(--admin-status-nuevo-text); }
+.admin-dashboard__status--visto { background: var(--admin-status-visto-bg); color: var(--admin-status-visto-text); }
+.admin-dashboard__status--respondido { background: var(--admin-status-respondido-bg); color: var(--admin-status-respondido-text); }
+.admin-dashboard__status--cerrado { background: var(--admin-status-cerrado-bg); color: var(--admin-status-cerrado-text); }
+
+.admin-dashboard__pager {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.admin-dashboard__pager button {
+  background: var(--admin-surface-alt);
+  border: 1px solid var(--admin-border);
+  color: var(--admin-text);
+  padding: 0.6rem 0.8rem;
+}

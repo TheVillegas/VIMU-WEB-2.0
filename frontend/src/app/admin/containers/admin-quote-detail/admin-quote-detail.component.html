@@ -1,0 +1,120 @@
+<section class="admin-quote-detail">
+  <button type="button" class="admin-quote-detail__back" (click)="goBack()">← Volver</button>
+
+  <div class="admin-quote-detail__state" *ngIf="loading">
+    <p>Cargando solicitud...</p>
+  </div>
+  <p class="admin-quote-detail__state admin-quote-detail__state--error" *ngIf="error">{{ error }}</p>
+
+  <ng-container *ngIf="quote">
+    <header class="admin-quote-detail__header">
+      <p class="t-label">Detalle de Solicitud</p>
+      <h1 class="t-heading">{{ quote.company_name }}</h1>
+    </header>
+
+    <!-- Status Stepper -->
+    <div class="admin-quote-detail__stepper" aria-label="Estado de la solicitud">
+      <span class="admin-quote-detail__step" [class.admin-quote-detail__step--active]="quote.status === 'nuevo'">Nuevo</span>
+      <span class="admin-quote-detail__step" [class.admin-quote-detail__step--active]="quote.status === 'visto'">Visto</span>
+      <span class="admin-quote-detail__step" [class.admin-quote-detail__step--active]="quote.status === 'respondido'">Respondido</span>
+      <span class="admin-quote-detail__step" [class.admin-quote-detail__step--active]="quote.status === 'cerrado'">Cerrado</span>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="admin-quote-detail__actions">
+      <button type="button" (click)="setStatus('visto')" [disabled]="quote.status === 'visto'">Marcar Visto</button>
+      <button type="button" (click)="setStatus('respondido')" [disabled]="quote.status === 'respondido'">Marcar Respondido</button>
+      <button type="button" (click)="setStatus('cerrado')" [disabled]="quote.status === 'cerrado'">Cerrar Solicitud</button>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="admin-quote-detail__section">
+      <h2 class="admin-quote-detail__section-title">Información de Contacto</h2>
+      <div class="admin-quote-detail__grid">
+        <article>
+          <span>Empresa</span>
+          <strong>{{ quote.company_name }}</strong>
+        </article>
+        <article>
+          <span>Email</span>
+          <strong>{{ quote.email }}</strong>
+        </article>
+        <article>
+          <span>WhatsApp / Teléfono</span>
+          <strong>{{ quote.whatsapp ?? '—' }}</strong>
+        </article>
+      </div>
+    </div>
+
+    <!-- Project Details -->
+    <div class="admin-quote-detail__section">
+      <h2 class="admin-quote-detail__section-title">Detalles del Proyecto</h2>
+      <div class="admin-quote-detail__grid">
+        <article>
+          <span>Tipo de Proyecto</span>
+          <strong>{{ formatField('project_type', quote.project_type) }}</strong>
+        </article>
+        <article>
+          <span>Plazo</span>
+          <strong>{{ formatField('timeline', quote.timeline) }}</strong>
+        </article>
+        <article>
+          <span>Rango Presupuesto</span>
+          <strong>{{ formatField('budget_tier', quote.budget_tier) }}</strong>
+        </article>
+        <article>
+          <span>Monto Estimado</span>
+          <strong>{{ formatField('budget_amount', quote.budget_amount) }}</strong>
+        </article>
+        <article>
+          <span>Prioridad</span>
+          <strong>{{ formatField('priority', quote.priority) }}</strong>
+        </article>
+      </div>
+    </div>
+
+    <!-- Description (extracted from business_needs) -->
+    <div class="admin-quote-detail__section">
+      <h2 class="admin-quote-detail__section-title">Descripción del Proyecto</h2>
+      <div class="admin-quote-detail__description">
+        <p>{{ getDescription() }}</p>
+      </div>
+    </div>
+
+    <!-- Additional Info -->
+    <div class="admin-quote-detail__section" *ngIf="quote.expected_metrics || quote.notes">
+      <h2 class="admin-quote-detail__section-title">Información Adicional</h2>
+      <div class="admin-quote-detail__grid">
+        <article *ngIf="quote.expected_metrics">
+          <span>Métricas Esperadas</span>
+          <strong>{{ quote.expected_metrics }}</strong>
+        </article>
+        <article *ngIf="quote.notes">
+          <span>Notas Internas</span>
+          <strong>{{ quote.notes }}</strong>
+        </article>
+      </div>
+    </div>
+
+    <!-- Meta -->
+    <div class="admin-quote-detail__section">
+      <h2 class="admin-quote-detail__section-title">Registro</h2>
+      <div class="admin-quote-detail__grid">
+        <article>
+          <span>Estado Actual</span>
+          <strong class="admin-quote-detail__status admin-quote-detail__status--{{ quote.status }}">
+            {{ formatField('status', quote.status) }}
+          </strong>
+        </article>
+        <article>
+          <span>Fecha de Recepción</span>
+          <strong>{{ quote.created_at | date:'medium' }}</strong>
+        </article>
+        <article>
+          <span>Última Actualización</span>
+          <strong>{{ quote.updated_at | date:'medium' }}</strong>
+        </article>
+      </div>
+    </div>
+  </ng-container>
+</section>

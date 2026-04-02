@@ -1,0 +1,52 @@
+<section class="admin-dashboard">
+  <header class="admin-dashboard__header">
+    <div>
+      <p class="t-label">Admin Panel</p>
+      <h1 class="t-heading">Solicitudes</h1>
+    </div>
+  </header>
+
+  <nav class="admin-dashboard__tabs" aria-label="Quote status filters">
+    <button
+      *ngFor="let tab of tabs"
+      type="button"
+      class="admin-dashboard__tab"
+      [class.admin-dashboard__tab--active]="activeTab === tab.value"
+      (click)="setTab(tab.value)"
+    >
+      {{ tab.label }}
+    </button>
+  </nav>
+
+  <div class="admin-dashboard__stats" *ngIf="stats">
+    <article><span>Total</span><strong>{{ stats.total }}</strong></article>
+    <article><span>Nuevas</span><strong>{{ stats.nuevo }}</strong></article>
+    <article><span>Vistas</span><strong>{{ stats.visto }}</strong></article>
+    <article><span>Respondidas</span><strong>{{ stats.respondido }}</strong></article>
+    <article><span>Cerradas</span><strong>{{ stats.cerrado }}</strong></article>
+  </div>
+
+  <div class="admin-dashboard__table">
+    <div class="admin-dashboard__row admin-dashboard__row--head">
+      <span>Empresa</span><span>Tipo Proyecto</span><span>Fecha</span><span>Estado</span><span>Acción</span>
+    </div>
+    <div class="admin-dashboard__row" *ngFor="let quote of filteredQuotes(); trackBy: trackByQuoteId">
+      <span class="admin-dashboard__company">
+        <span class="admin-dashboard__avatar">{{ getInitials(quote.company_name) }}</span>
+        <a class="admin-dashboard__link" [routerLink]="['/admin/quotes', quote.id]">{{ quote.company_name }}</a>
+      </span>
+      <span>{{ quote.project_type }}</span>
+      <span>{{ quote.created_at | date:'shortDate' }}</span>
+      <span class="admin-dashboard__status admin-dashboard__status--{{ quote.status }}">{{ quote.status }}</span>
+      <span class="admin-dashboard__actions">
+        <button [routerLink]="['/admin/quotes', quote.id]">Ver detalles</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="admin-dashboard__pager">
+    <button type="button" (click)="goToPage(page - 1)" [disabled]="page === 1">Anterior</button>
+    <span>Página {{ page }} de {{ totalPages() }}</span>
+    <button type="button" (click)="goToPage(page + 1)" [disabled]="page === totalPages()">Siguiente</button>
+  </div>
+</section>

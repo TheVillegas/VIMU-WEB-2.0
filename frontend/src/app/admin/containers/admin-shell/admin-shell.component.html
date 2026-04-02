@@ -1,0 +1,25 @@
+<div class="admin-shell">
+  <aside class="admin-shell__sidebar">
+    <a class="admin-shell__brand" routerLink="/admin/dashboard">VIMU DEVS</a>
+
+    <nav class="admin-shell__nav">
+      <a
+        *ngFor="let link of navLinks"
+        class="admin-shell__nav-link"
+        [routerLink]="link.link"
+        routerLinkActive="admin-shell__nav-link--active"
+      >
+        {{ link.label }}
+      </a>
+    </nav>
+
+    <div class="admin-shell__actions">
+      <span class="admin-shell__user">Admin</span>
+      <button type="button" class="admin-shell__logout" (click)="logout()">Logout</button>
+    </div>
+  </aside>
+
+  <main class="admin-shell__content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

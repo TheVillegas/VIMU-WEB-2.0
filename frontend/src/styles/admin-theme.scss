@@ -1,0 +1,29 @@
+:root {
+  /* ── Base Surfaces ── */
+  --admin-bg: #0f0f0f;
+  --admin-surface: #1a1a1a;
+  --admin-surface-alt: #222222;
+  --admin-surface-strong: #2a2a2a;
+  --admin-text: #e5e2e1;
+  --admin-text-muted: #8a8a8a;
+  --admin-border: rgba(255, 255, 255, 0.08);
+  --admin-accent: #d4d0cb;
+  --admin-radius: 4px;
+
+  /* ── Sidebar ── */
+  --admin-sidebar-bg: #141414;
+  --admin-sidebar-width: 220px;
+
+  /* ── Status Badges (dark-mode safe) ── */
+  --admin-status-nuevo-bg: rgba(59, 130, 246, 0.15);
+  --admin-status-nuevo-text: #60a5fa;
+
+  --admin-status-visto-bg: rgba(217, 119, 6, 0.15);
+  --admin-status-visto-text: #fbbf24;
+
+  --admin-status-respondido-bg: rgba(22, 163, 74, 0.15);
+  --admin-status-respondido-text: #4ade80;
+
+  --admin-status-cerrado-bg: rgba(107, 114, 128, 0.15);
+  --admin-status-cerrado-text: #9ca3af;
+}

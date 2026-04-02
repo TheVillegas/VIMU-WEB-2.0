@@ -1,0 +1,151 @@
+.admin-quote-detail {
+  padding: 2rem;
+  color: var(--admin-text);
+}
+
+.admin-quote-detail__back {
+  background: var(--admin-surface-alt);
+  border: 1px solid var(--admin-border);
+  color: var(--admin-text);
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.admin-quote-detail__back:hover {
+  background: var(--admin-surface-strong);
+}
+
+.admin-quote-detail__state {
+  margin: 1rem 0;
+  color: var(--admin-text-muted);
+}
+.admin-quote-detail__state--error {
+  color: #ff6b6b;
+}
+
+.admin-quote-detail__header {
+  margin-bottom: 1.5rem;
+}
+
+/* ── Stepper ── */
+.admin-quote-detail__stepper {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.admin-quote-detail__step {
+  border: 1px solid var(--admin-border);
+  border-radius: 999px;
+  padding: 0.5rem 0.8rem;
+  background: var(--admin-surface-alt);
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+.admin-quote-detail__step--active {
+  border-color: var(--admin-accent);
+  box-shadow: 0 0 0 1px var(--admin-accent) inset;
+  color: var(--admin-accent);
+}
+
+/* ── Action Buttons ── */
+.admin-quote-detail__actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+.admin-quote-detail__actions button {
+  background: var(--admin-surface-alt);
+  color: var(--admin-text);
+  border: 1px solid var(--admin-border);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.admin-quote-detail__actions button:hover:not(:disabled) {
+  background: var(--admin-surface-strong);
+}
+.admin-quote-detail__actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ── Sections ── */
+.admin-quote-detail__section {
+  margin-top: 2rem;
+}
+.admin-quote-detail__section-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--admin-text-muted);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+/* ── Grid Cards ── */
+.admin-quote-detail__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+.admin-quote-detail__grid article {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.admin-quote-detail__grid article span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--admin-text-muted);
+}
+.admin-quote-detail__grid article strong {
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+/* ── Description Block ── */
+.admin-quote-detail__description {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius);
+  padding: 1.25rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* ── Status Badges ── */
+.admin-quote-detail__status {
+  display: inline-flex;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.admin-quote-detail__status--nuevo {
+  background: var(--admin-status-nuevo-bg);
+  color: var(--admin-status-nuevo-text);
+}
+.admin-quote-detail__status--visto {
+  background: var(--admin-status-visto-bg);
+  color: var(--admin-status-visto-text);
+}
+.admin-quote-detail__status--respondido {
+  background: var(--admin-status-respondido-bg);
+  color: var(--admin-status-respondido-text);
+}
+.admin-quote-detail__status--cerrado {
+  background: var(--admin-status-cerrado-bg);
+  color: var(--admin-status-cerrado-text);
+}

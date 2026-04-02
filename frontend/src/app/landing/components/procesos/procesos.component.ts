@@ -17,22 +17,22 @@ export class ProcesosComponent {
     {
       number: '01',
       title: 'Diagnóstico',
-      description: 'Entendemos tu negocio, tus objetivos y el problema real antes de proponer cualquier solución tecnológica.'
+      description: 'Entendemos el negocio, los objetivos y el problema real antes de proponer una solución.'
     },
     {
       number: '02',
       title: 'Arquitectura',
-      description: 'Diseñamos la solución técnica con criterio. Elegimos el stack correcto para tu escala, no el de moda.'
+      description: 'Diseñamos la solución técnica con criterio. Elegimos el stack correcto para la escala del proyecto, no el de moda.'
     },
     {
       number: '03',
       title: 'Ejecución',
-      description: 'Desarrollo iterativo con entregas visibles. Vos seguís el progreso en tiempo real, sin sorpresas.'
+      description: 'Desarrollo iterativo con entregas visibles. El avance se revisa de forma continua, sin sorpresas.'
     },
     {
       number: '04',
       title: 'Presencia Continua',
-      description: 'No desaparecemos al entregar. Somos el socio técnico que permanece mientras tu producto crece.'
+      description: 'No desaparecemos al entregar. Acompañamos mientras el producto crece y necesita evolución.'
     }
   ];
 }

@@ -1,7 +1,6 @@
 -- 03-seed-admin.sql
--- Default admin user: admin / admin123
+-- Default admin user: admin@vimudevs.com / admin123
 -- Password hash generated using bcrypt round 10 manually or through backend
--- For seed purposes, this hash equals 'admin123'
-INSERT INTO admin_users (username, password_hash)
-VALUES ('admin', '$2b$10$tZ2R.8QWbA027s/D0h9tJ.aN0wFqf1L0e7vNnOfTqG60fVqX0X75C')
-ON CONFLICT (username) DO NOTHING;
+INSERT INTO admin_users (email, password_hash)
+VALUES ('admin@vimudevs.com', '$2b$10$.Cu.S/ixD6ZxlqEMm4PHhu6W1TwrWd/jJ8uRuORMMqLtFxnu0oDmu')
+ON CONFLICT (email) DO NOTHING;

@@ -5,6 +5,7 @@ interface Service {
   title: string;
   description: string;
   items: string[];
+  icon: 'briefcase' | 'layers' | 'refresh' | 'cloud' | 'spark';
 }
 
 @Component({
@@ -17,21 +18,38 @@ export class ServicesComponent {
   services: Service[] = [
     {
       number: '01',
-      title: 'Consultoría TI',
-      description: 'Asesoría estratégica para startups y empresas que buscan escalar su infraestructura tecnológica con decisiones fundadas.',
-      items: ['Arquitectura de Sistemas', 'Optimización de Procesos', 'Estrategia Cloud']
+      title: 'Consultoría y Relevamiento',
+      description: 'Antes de tocar una línea de código, hacemos un diagnóstico técnico serio para evitar que el cliente pague por funcionalidades innecesarias.',
+      items: ['Definición de alcance', 'Validación técnica', 'Plan de ejecución'],
+      icon: 'briefcase'
     },
     {
       number: '02',
-      title: 'Software a Medida',
-      description: 'Desarrollo de aplicaciones robustas, escalables y orientadas a resultados tangibles para tu negocio.',
-      items: ['Apps iOS / Android', 'Plataformas Web', 'Sistemas de Gestión']
+      title: 'Desarrollo Full-Stack Escalable',
+      description: 'Construcción de aplicaciones web y móviles personalizadas con arquitecturas modernas que crecen junto al negocio.',
+      items: ['Web apps', 'Mobile-ready', 'Arquitectura moderna'],
+      icon: 'layers'
     },
     {
       number: '03',
-      title: 'Presencia Digital',
-      description: 'Más que una web, creamos experiencias que reflejan la esencia de tu marca con precisión y carácter.',
-      items: ['Diseño UX/UI Premium', 'Landing de Alta Conversión', 'Hosting & Soporte Técnico']
+      title: 'Modernización de Procesos',
+      description: 'Transformamos flujos manuales o legados en sistemas digitales eficientes que ordenan y aceleran la operación.',
+      items: ['Digitalización', 'Automatización', 'Optimización operativa'],
+      icon: 'refresh'
+    },
+    {
+      number: '04',
+      title: 'Cloud y Serverless',
+      description: 'Diseño de soluciones en la nube optimizadas para costo y escalabilidad, ideales para evitar infraestructura ociosa.',
+      items: ['Infraestructura eficiente', 'Escalado flexible', 'Costos controlados'],
+      icon: 'cloud'
+    },
+    {
+      number: '05',
+      title: 'IA y Agentes',
+      description: 'Implementamos flujos potenciados por LLMs para automatizar tareas, mejorar atención o acelerar el procesamiento interno.',
+      items: ['Automatización con IA', 'Agentes', 'Procesamiento asistido'],
+      icon: 'spark'
     }
   ];
 }

@@ -1,25 +1,25 @@
 export enum ProjectType {
-    ECOMMERCE = 'E-commerce',
-    BLOG = 'Blog',
-    LANDING = 'Landing',
-    ERP = 'ERP',
-    MOBILE_APP = 'Mobile App',
-    HOSTING = 'Hosting',
-    AI = 'AI',
-    AUDIT = 'Audit'
+    CONSULTORIA = 'consultoria',
+    FULL_STACK = 'full_stack',
+    MODERNIZACION = 'modernizacion',
+    CLOUD_SERVERLESS = 'cloud_serverless',
+    IA_AGENTES = 'ia_agentes',
+    OTRO = 'otro'
 }
 
 export enum Timeline {
-    SHORT = 'Short',
-    MEDIUM = 'Medium',
-    LONG = 'Long',
-    FLEXIBLE = 'Flexible'
+    URGENTE = 'urgente',
+    CORTO = 'corto',
+    MEDIO = 'medio',
+    LARGO = 'largo',
+    FLEXIBLE = 'flexible'
 }
 
 export enum BudgetTier {
-    BASIC = 'Basic',
-    INTERMEDIATE = 'Intermediate',
-    LARGE = 'Large'
+    BAJO = 'bajo',
+    MEDIO = 'medio',
+    ALTO = 'alto',
+    A_CONSULTAR = 'a_consultar'
 }
 
 export enum Priority {
@@ -29,9 +29,8 @@ export enum Priority {
 }
 
 export enum QuoteStatus {
-    PENDING = 'PENDING',
-    CONTACTED = 'CONTACTED',
-    IN_PROGRESS = 'IN_PROGRESS',
-    REJECTED = 'REJECTED',
-    COMPLETED = 'COMPLETED'
+    NUEVO = 'nuevo',
+    VISTO = 'visto',
+    RESPONDIDO = 'respondido',
+    CERRADO = 'cerrado'
 }
