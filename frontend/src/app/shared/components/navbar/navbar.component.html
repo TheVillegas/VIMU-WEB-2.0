@@ -3,22 +3,16 @@
 
     <a href="/" class="navbar__logo">VIMU DEVS</a>
 
-    <nav class="navbar__nav" [class.navbar__nav--open]="menuOpen()">
+    <nav class="navbar__nav">
       @for (link of navLinks; track link.label) {
         <button class="navbar__link" (click)="scrollTo(link.fragment)">
           {{ link.label }}
         </button>
       }
-      <a routerLink="/agendar" class="navbar__cta" (click)="menuOpen.set(false)">
+      <a routerLink="/agendar" class="navbar__cta">
         Cotiza con nosotros
       </a>
     </nav>
-
-    <button class="navbar__hamburger" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()">
-      <span class="navbar__bar" [class.navbar__bar--open]="menuOpen()"></span>
-      <span class="navbar__bar" [class.navbar__bar--open]="menuOpen()"></span>
-      <span class="navbar__bar" [class.navbar__bar--open]="menuOpen()"></span>
-    </button>
 
   </div>
 </header>

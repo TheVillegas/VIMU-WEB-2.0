@@ -8,7 +8,6 @@ import { Component, HostListener, signal } from '@angular/core';
 })
 export class NavbarComponent {
   scrolled = signal(false);
-  menuOpen = signal(false);
 
   navLinks = [
     { label: 'Servicios',  fragment: 'servicios' },
@@ -24,10 +23,5 @@ export class NavbarComponent {
 
   scrollTo(fragment: string) {
     document.getElementById(fragment)?.scrollIntoView({ behavior: 'smooth' });
-    this.menuOpen.set(false);
-  }
-
-  toggleMenu() {
-    this.menuOpen.update(v => !v);
   }
 }
