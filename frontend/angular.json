@@ -30,7 +30,7 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "outputPath": "dist/browser",
+            "outputPath": "dist",
             "assets": [
               {
                 "glob": "**/*",
