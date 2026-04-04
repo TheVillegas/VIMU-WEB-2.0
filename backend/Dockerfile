@@ -4,4 +4,6 @@ WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
-CMD ["npx", "tsx", "watch", "src/server.ts"]
+COPY . .
+
+CMD ["npx", "tsx", "src/server.ts"]
