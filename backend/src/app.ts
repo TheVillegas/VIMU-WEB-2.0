@@ -9,8 +9,23 @@ const app = express();
 
 app.use(express.json());
 app.use(helmet());
+const rawOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:4200';
+const allowedOrigins = [
+  rawOrigin,
+  rawOrigin.startsWith('https://') ? rawOrigin.replace('https://', 'http://') : rawOrigin.replace('http://', 'https://'),
+  `https://www.vimudevs.com`,
+  `https://vimudevs.com`,
+  'http://localhost:4200',
+];
+
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGIN || 'http://localhost:4200',
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error(`CORS blocked: ${origin}`));
+    }
+  },
   credentials: true
 }));
 
