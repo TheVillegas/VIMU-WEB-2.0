@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { retry } from 'rxjs';
 
 import { ProjectType, Timeline, BudgetTier } from '../../../../../../shared/enums';
 import { environment } from '../../../../environments/environment';
@@ -11,7 +12,7 @@ import { environment } from '../../../../environments/environment';
   templateUrl: './agendar-page.component.html',
   styleUrl: './agendar-page.component.scss'
 })
-export class AgendarPageComponent {
+export class AgendarPageComponent implements OnInit {
   form: FormGroup;
   submitted = false;
   loading = false;
@@ -55,6 +56,10 @@ export class AgendarPageComponent {
     });
   }
 
+  ngOnInit() {
+    this.http.get(`${environment.apiUrl}/api/health`).subscribe({ error: () => {} });
+  }
+
   get f() { return this.form.controls; }
 
   onSubmit() {
@@ -77,7 +82,9 @@ export class AgendarPageComponent {
       description: this.form.value.descripcion
     };
 
-    this.http.post(`${environment.apiUrl}/api/quotes`, payload).subscribe({
+    this.http.post(`${environment.apiUrl}/api/quotes`, payload).pipe(
+      retry({ count: 2, delay: 3000 })
+    ).subscribe({
       next: () => {
         this.loading = false;
         this.success = true;
