@@ -1,6 +1,14 @@
 import { resendClient } from '../../config/resend';
 import { QuoteSubmissionInput } from './quotes.types';
 
+const budgetLabel: Record<string, string> = {
+  bajo: '50.000 – 150.000 CLP',
+  medio: '150.000 – 300.000 CLP',
+  alto: '300.000 – 500.000 CLP',
+  extremo: '500.000 – 1.000.000 CLP',
+  a_consultar: 'A consultar',
+};
+
 type QuoteRecipient = QuoteSubmissionInput & {
   company_name: string;
   priority: string;
@@ -25,7 +33,7 @@ export async function sendQuoteNotifications(quote: QuoteRecipient) {
       <p><strong>Teléfono:</strong> ${quote.phone ?? 'No informado'}</p>
       <p><strong>Proyecto:</strong> ${quote.project_type}</p>
       <p><strong>Timeline:</strong> ${quote.timeline}</p>
-      <p><strong>Presupuesto:</strong> ${quote.budget_tier}</p>
+      <p><strong>Presupuesto:</strong> ${budgetLabel[quote.budget_tier] ?? quote.budget_tier}</p>
       <p><strong>Prioridad:</strong> ${quote.priority}</p>
       <p><strong>Descripción:</strong><br>${quote.description}</p>
     `
@@ -40,10 +48,19 @@ export async function sendQuoteNotifications(quote: QuoteRecipient) {
     to: userTo,
     subject: 'Recibimos tu solicitud en VIMU DEVS',
     html: `
-      <h1>Gracias por contactar a VIMU DEVS</h1>
-      <p>Recibimos tu solicitud y vamos a revisarla pronto.</p>
-      <p><strong>Proyecto:</strong> ${quote.project_type}</p>
-      <p><strong>Descripción:</strong><br>${quote.description}</p>
+      <h2>¡Hola, ${quote.name || quote.company_name}!</h2>
+
+      <p>Qué gusto saludarte. Gracias por considerarnos para ayudarte con <strong>${quote.project_type}</strong>.</p>
+
+      <p>Acabo de recibir tu mensaje y me encanta la pinta que tiene el proyecto. Voy a darle una vuelta a la información que nos pasaste para ver cómo podemos aportar el máximo valor.</p>
+
+      <h3>¿Qué sigue ahora?</h3>
+
+      <p>Te escribiré pronto para que charlemos un poco más a fondo y poder revisar cómo podemos sacarle el máximo potencial a tu proyecto.</p>
+
+      <br>
+      <p>Saludos,</p>
+      <p><strong>Matias Villegas Muñoz</strong><br>CEO — VIMU DEVS</p>
     `
   });
 

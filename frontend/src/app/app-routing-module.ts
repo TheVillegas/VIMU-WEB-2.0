@@ -13,6 +13,18 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+  {
+    path: 'privacidad',
+    loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule)
+  },
+  {
+    path: 'terminos',
+    loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule)
+  },
+  {
+    path: 'cookies',
+    loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule)
   }
 ];
 

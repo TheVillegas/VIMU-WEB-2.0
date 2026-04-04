@@ -19,6 +19,7 @@ export enum BudgetTier {
     BAJO = 'bajo',
     MEDIO = 'medio',
     ALTO = 'alto',
+    EXTREMO = 'extremo',
     A_CONSULTAR = 'a_consultar'
 }
 

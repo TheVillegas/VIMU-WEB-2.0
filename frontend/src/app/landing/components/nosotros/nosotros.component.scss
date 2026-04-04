@@ -1,24 +1,29 @@
-:host { display: block; }
+:host {
+  display: block;
+}
 
 .nosotros {
   padding-block: var(--space-section);
   background: var(--color-bg);
 
   &__inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem; // Espacio entre el título y el bloque de abajo
+  }
 
-    @media (max-width: 900px) {
-      grid-template-columns: 1fr;
-      gap: 3rem;
+  /* BLOQUE SUPERIOR: Título y Cuerpo */
+  &__header {
+    max-width: 900px;
+
+    @media (max-width: 1024px) {
+      text-align: center;
+      margin-inline: auto;
     }
   }
 
   &__eyebrow {
     display: inline-block;
-    font-family: var(--font-body);
     font-size: var(--text-label);
     font-weight: 700;
     letter-spacing: 0.2em;
@@ -29,106 +34,170 @@
 
   &__title {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 3.8vw, 5.25rem);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
+    line-height: 1.1;
     color: var(--color-text-primary);
     margin-bottom: 2rem;
 
-    &-muted { color: var(--color-text-muted); }
+    &-muted {
+      color: var(--color-text-muted);
+    }
   }
 
   &__body {
-    font-size: 0.9375rem;
+    font-size: 1.1rem;
     color: var(--color-text-secondary);
-    line-height: 1.75;
-    margin-bottom: 1.25rem;
+    line-height: 1.6;
+    max-width: 700px;
   }
 
+  /* BLOQUE INFERIOR: Foto y Stats */
+  &__content {
+    display: grid;
+    // 0.8fr para la foto y 1.2fr para los stats (más importancia al texto)
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 3rem;
+    align-items: start;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr; // En tablets/mobile se apila todo
+      gap: 2rem;
+    }
+  }
+
+  /* ESTILO DE LA FOTO (LADO IZQUIERDO) */
   &__photo {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    width: 100%;
   }
 
   &__photo-frame {
     position: relative;
     overflow: hidden;
     border: 1px solid var(--color-border);
-    border-radius: 1rem;
-    background: var(--color-surface-high);
-    aspect-ratio: 4 / 5;
+    border-radius: 1.25rem;
+    aspect-ratio: 1 / 1; // Foto cuadrada según tu esquema
+    background: var(--color-surface);
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
-      filter: grayscale(1) contrast(1.02);
+      filter: grayscale(1);
+      transition: filter 0.4s ease, transform 0.6s ease;
+
+      &:hover {
+        filter: grayscale(0);
+        transform: scale(1.03);
+      }
     }
   }
 
   &__photo-note {
-    margin-top: 0.75rem;
-    font-size: var(--text-label);
+    margin-top: 1rem;
+    font-size: 0.75rem;
     color: var(--color-text-muted);
-    letter-spacing: 0.04em;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* GRILLA DE PILARES (LADO DERECHO) */
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__stat {
+    padding: 2.25rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.01);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 220px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      border-color: var(--color-accent);
+      background: rgba(255, 255, 255, 0.03);
+      transform: translateY(-5px);
+    }
+
+    &-icon {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      background: rgba(197, 164, 126, 0.08);
+      border: 1px solid rgba(197, 164, 126, 0.18);
+      margin-bottom: 1.1rem;
+    }
+
+    &-value {
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--color-text-primary);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    &-label {
+      font-size: 0.95rem;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+  }
+
+  /* EL BOTÓN (DEBAJO DE LOS STATS, ALINEADO A LA DERECHA) */
+  &__cta-wrapper {
+    grid-column: 2; // Se posiciona bajo la columna de los stats
+    display: flex;
+    justify-content: flex-end; // Lo manda al "recuadro negro" de tu dibujo
+    margin-top: -5rem; // Subir el botón reduciendo el espacio efectivo del gap
+
+    @media (max-width: 1024px) {
+      grid-column: 1;
+      justify-content: center; // Centrado en mobile para mejor pulgar
+      margin-top: 2.5rem;
+    }
   }
 
   &__cta {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-top: 1rem;
-    font-family: var(--font-body);
-    font-size: var(--text-label);
+    gap: 0.75rem;
+    padding: 1.1rem 2.2rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-radius: 0.5rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    font-size: 0.875rem;
     text-transform: uppercase;
-    color: var(--color-accent);
-    border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
-    transition: border-color 0.2s ease, gap 0.2s ease;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-      border-color: var(--color-accent);
-      gap: 0.875rem;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      filter: brightness(1.1);
     }
-  }
 
-  &__stats {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    border: 1px solid var(--color-border);
-  }
+    svg {
+      transition: transform 0.3s ease;
+    }
 
-  &__stat {
-    padding: 2.5rem;
-    border-bottom: 1px solid var(--color-border);
-    transition: background 0.3s ease;
-
-    &:last-child { border-bottom: none; }
-
-    &:hover { background: var(--color-surface); }
-  }
-
-  &__stat-value {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: clamp(1.75rem, 3.8vw, 4.5rem);
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    line-height: 1;
-    color: var(--color-text-primary);
-    margin-bottom: 0.5rem;
-  }
-
-  &__stat-label {
-    font-size: var(--text-label);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-text-muted);
+    &:hover svg {
+      transform: translateX(5px); // Animación de la flecha al apuntar
+    }
   }
 }

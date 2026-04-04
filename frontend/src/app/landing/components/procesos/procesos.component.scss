@@ -33,7 +33,7 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0;
+    gap: 1rem;
 
     @media (max-width: 900px) {
       grid-template-columns: repeat(2, 1fr);
@@ -45,25 +45,34 @@
   }
 
   &__card {
-    padding: 2.5rem;
-    border-left: 1px solid var(--color-border);
+    padding: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.01);
     transition: background 0.3s ease;
-
-    &:first-child { border-left: none; }
 
     &:hover {
       background: var(--color-surface-high);
 
+      .procesos__card-icon { border-color: rgba(197, 164, 126, 0.35); background: rgba(197, 164, 126, 0.12); }
       .procesos__card-number { color: var(--color-accent); }
       .procesos__card-line   { background: var(--color-accent); width: 2.5rem; }
     }
 
-    @media (max-width: 900px) {
-      border-top: 1px solid var(--color-border);
-      border-left: none;
+    @media (max-width: 900px) { padding: 1.75rem; }
+  }
 
-      &:nth-child(2n+1) { border-left: none; }
-    }
+  &__card-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-accent);
+    background: rgba(197, 164, 126, 0.08);
+    border: 1px solid rgba(197, 164, 126, 0.18);
+    margin-bottom: 1rem;
   }
 
   &__card-number {

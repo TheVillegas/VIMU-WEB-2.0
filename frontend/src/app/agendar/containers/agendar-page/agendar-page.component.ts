@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ProjectType, Timeline, BudgetTier } from '../../../../../../shared/enums';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-agendar-page',
@@ -30,16 +31,15 @@ export class AgendarPageComponent {
     { value: Timeline.CORTO, label: 'Corto plazo' },
     { value: Timeline.MEDIO, label: 'Mediano plazo' },
     { value: Timeline.LARGO, label: 'Largo plazo' },
-    { value: Timeline.LARGO, label: 'Largo plazo extendido' },
     { value: Timeline.FLEXIBLE, label: 'Flexible / No definido' }
   ];
 
   budgetTiers = [
-    { value: BudgetTier.BAJO, label: 'Bajo' },
-    { value: BudgetTier.MEDIO, label: 'Medio' },
-    { value: BudgetTier.ALTO, label: 'Alto' },
-    { value: BudgetTier.ALTO, label: 'Muy alto' },
-    { value: BudgetTier.A_CONSULTAR, label: 'A consultar' }
+    { value: BudgetTier.BAJO, label: '50.000-150.000CLP' },
+    { value: BudgetTier.MEDIO, label: '150.000-300.000CLP' },
+    { value: BudgetTier.ALTO, label: '300.000-500.000CLP' },
+    { value: BudgetTier.EXTREMO, label: '500.000-1.000.000CLP' },
+    { value: BudgetTier.A_CONSULTAR, label: 'No estoy seguro' }
   ];
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
@@ -77,7 +77,7 @@ export class AgendarPageComponent {
       description: this.form.value.descripcion
     };
 
-    this.http.post('/api/quotes', payload).subscribe({
+    this.http.post(`${environment.apiUrl}/api/quotes`, payload).subscribe({
       next: () => {
         this.loading = false;
         this.success = true;

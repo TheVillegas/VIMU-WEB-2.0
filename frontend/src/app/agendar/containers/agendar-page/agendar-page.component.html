@@ -12,28 +12,31 @@
         </svg>
         Volver
       </a>
+      <br>
       <span class="agendar__eyebrow">Cotización</span>
       <h1 class="agendar__title">
         Cuéntanos sobre<br>
         <span class="agendar__title-muted">tu proyecto.</span>
       </h1>
       <p class="agendar__subtitle">
-        Completa el formulario y te contactamos dentro de 48 horas hábiles para enviarte una propuesta inicial.
+        Completa el formulario con los detalles de tu proyecto y, en un plazo máximo de 48 horas hábiles, nos pondremos
+        en contacto contigo para entender mejor tus necesidades. Con esa información, elaboraremos y te enviaremos una
+        propuesta inicial personalizada, alineada a tus objetivos, alcance y presupuesto.
       </p>
     </div>
 
     @if (success) {
-      <div class="agendar__notice agendar__notice--success" role="status" aria-live="polite">
-        <strong>Solicitud enviada.</strong>
-        <span>Nos vamos a comunicar pronto con vos.</span>
-      </div>
+    <div class="agendar__notice agendar__notice--success" role="status" aria-live="polite">
+      <strong>Solicitud enviada.</strong>
+      <span>Nos vamos a comunicar lo antes posible contigo para dar una solucion a tu proyecto.</span>
+    </div>
     }
 
     @if (error) {
-      <div class="agendar__notice agendar__notice--error" role="alert" aria-live="assertive">
-        <strong>Error.</strong>
-        <span>{{ error }}</span>
-      </div>
+    <div class="agendar__notice agendar__notice--error" role="alert" aria-live="assertive">
+      <strong>Error.</strong>
+      <span>{{ error }}</span>
+    </div>
     }
 
     <form class="agendar__form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
@@ -51,7 +54,7 @@
         <div class="agendar__field">
           <label class="agendar__label" for="email">Email *</label>
           <input class="agendar__input" [class.agendar__input--error]="submitted && f['email'].errors" id="email"
-            type="email" formControlName="email" placeholder="vos@empresa.com">
+            type="email" formControlName="email" placeholder="ejemplo@empresa.com">
           @if (submitted && f['email'].errors) {
           <span class="agendar__error">Email válido requerido</span>
           }

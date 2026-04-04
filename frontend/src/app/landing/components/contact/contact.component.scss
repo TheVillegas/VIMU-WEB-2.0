@@ -54,6 +54,36 @@
     gap: 1rem;
   }
 
+  &__cta-wrapper {
+    margin-top: 0.5rem;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.1rem 2.2rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      filter: brightness(1.1);
+    }
+
+    svg { transition: transform 0.3s ease; }
+
+    &:hover svg { transform: translateX(5px); }
+  }
+
   &__socials {
     display: flex;
     flex-wrap: wrap;
@@ -114,6 +144,22 @@
 
       .contact__channel-label {
         color: rgba(37, 211, 102, 0.6);
+      }
+    }
+
+    &--ig {
+      &:hover {
+        border-color: #E1306C;
+      }
+
+      .contact__channel-icon {
+        background: rgba(225, 48, 108, 0.08);
+        color: #E1306C;
+        border-color: rgba(225, 48, 108, 0.2);
+      }
+
+      .contact__channel-label {
+        color: rgba(225, 48, 108, 0.6);
       }
     }
   }

@@ -1,10 +1,11 @@
 import { QuoteRecord, QuoteSubmissionInput, Priority, BudgetTier, Timeline, QuoteStatus } from './quotes.types';
 
 const budgetMap: Record<QuoteSubmissionInput['budget_tier'], { amount: number | null; priority: Priority }> = {
-  [BudgetTier.BAJO]: { amount: 500000, priority: Priority.NORMAL },
-  [BudgetTier.MEDIO]: { amount: 2000000, priority: Priority.NORMAL },
-  [BudgetTier.ALTO]: { amount: 5000000, priority: Priority.URGENT },
-  [BudgetTier.A_CONSULTAR]: { amount: null, priority: Priority.URGENT }
+  [BudgetTier.BAJO]: { amount: 150000, priority: Priority.NORMAL },
+  [BudgetTier.MEDIO]: { amount: 300000, priority: Priority.NORMAL },
+  [BudgetTier.ALTO]: { amount: 500000, priority: Priority.URGENT },
+  [BudgetTier.EXTREMO]: { amount: 1000000, priority: Priority.URGENT },
+  [BudgetTier.A_CONSULTAR]: { amount: 0, priority: Priority.URGENT }
 };
 
 const timelineMap: Record<QuoteSubmissionInput['timeline'], string> = {

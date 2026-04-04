@@ -12,6 +12,17 @@
     <div class="procesos__grid">
       @for (paso of pasos; track paso.number) {
         <div class="procesos__card">
+          <div class="procesos__card-icon" aria-hidden="true">
+            @if (paso.icon === 'search') {
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /><path d="M8.5 11h5" /></svg>
+            } @else if (paso.icon === 'design') {
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16" /><path d="M7 21h10" /><path d="M12 7v14" /><path d="M7 7l5-4 5 4" /></svg>
+            } @else if (paso.icon === 'build') {
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16" /><path d="M4 17h16" /><path d="m8 7 4 10 4-10" /></svg>
+            } @else {
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6" /><path d="M12 16v6" /><path d="M4.93 4.93l4.24 4.24" /><path d="M14.83 14.83l4.24 4.24" /><path d="M2 12h6" /><path d="M16 12h6" /><path d="M4.93 19.07l4.24-4.24" /><path d="M14.83 9.17l4.24-4.24" /></svg>
+            }
+          </div>
           <span class="procesos__card-number">{{ paso.number }}</span>
           <div class="procesos__card-line"></div>
           <h3 class="procesos__card-title">{{ paso.title }}</h3>

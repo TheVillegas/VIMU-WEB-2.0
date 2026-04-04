@@ -3,6 +3,7 @@ import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgendarPageComponent } from './agendar-page.component';
+import { environment } from '../../../../environments/environment';
 
 describe('AgendarPageComponent', () => {
   let fixture: ComponentFixture<AgendarPageComponent>;
@@ -41,7 +42,7 @@ describe('AgendarPageComponent', () => {
 
     component.onSubmit();
 
-    const req = httpMock.expectOne('/api/quotes');
+    const req = httpMock.expectOne(`${environment.apiUrl}/api/quotes`);
     expect(req.request.method).toBe('POST');
     expect(req.request.body).toEqual({
       name: 'Matías',

@@ -1,14 +1,30 @@
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50%       { transform: translateY(-18px) rotate(4deg); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-18px) rotate(4deg);
+  }
 }
 
-:host { display: block; }
+:host {
+  display: block;
+}
 
 .hero {
   position: relative;
@@ -39,7 +55,7 @@
     // La composición debe sentirse centrada, pero con leve desplazamiento a la derecha
     // para sostener el efecto de “Silent Authority”.
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
     gap: 3rem;
     align-items: center;
 
@@ -168,6 +184,7 @@
     align-self: stretch;
     justify-self: end;
     margin-top: 1.5rem;
+    transform: translate(250px, 40px);
 
     @media (max-width: 960px) {
       max-width: 560px;
@@ -178,17 +195,26 @@
 
   &__photo-frame {
     position: relative;
-    min-height: 560px;
+    aspect-ratio: 4 / 5;
+    max-height: 70vh;
     border: 1px solid var(--color-border);
     border-radius: 1rem;
     overflow: hidden;
     background:
-      linear-gradient(180deg, rgba(17,17,17,0.08), rgba(17,17,17,0.65)),
-      radial-gradient(circle at top, rgba(212,208,203,0.12), transparent 45%),
+      linear-gradient(180deg, rgba(17, 17, 17, 0.08), rgba(17, 17, 17, 0.65)),
+      radial-gradient(circle at top, rgba(212, 208, 203, 0.12), transparent 45%),
       var(--color-surface-high);
 
     @media (max-width: 960px) {
-      min-height: 360px;
+      max-height: 460px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--color-bg) 0%, transparent 40%);
+      pointer-events: none;
     }
   }
 
@@ -204,8 +230,8 @@
     text-align: center;
     padding: 2rem;
     background:
-      linear-gradient(135deg, rgba(255,255,255,0.04), transparent 50%),
-      radial-gradient(circle at center, rgba(212,208,203,0.08), transparent 55%);
+      linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 50%),
+      radial-gradient(circle at center, rgba(212, 208, 203, 0.08), transparent 55%);
 
     span {
       font-family: var(--font-heading);
@@ -231,6 +257,7 @@
   }
 
   // Decorative floating icons
+  // Decorative floating icons
   &__deco {
     position: absolute;
     inset: 0;
@@ -243,6 +270,7 @@
     color: var(--color-border);
     opacity: 0.6;
 
+    // ── Íconos existentes ──────────────────────────────
     &--1 {
       width: 80px;
       height: 80px;
@@ -265,6 +293,118 @@
       bottom: 15%;
       right: 8%;
       animation: float 8s 2s ease-in-out infinite;
+    }
+
+    // ── Íconos nuevos ──────────────────────────────────
+
+    // Terminal prompt — arriba izquierda
+    &--4 {
+      width: 52px;
+      height: 52px;
+      top: 8%;
+      left: 5%;
+      animation: float 8s 0.5s ease-in-out infinite;
+    }
+
+    // Git branch — lado izquierdo, zona media-alta
+    &--5 {
+      width: 40px;
+      height: 40px;
+      top: 28%;
+      left: 3%;
+      animation: float 10s 3s ease-in-out infinite;
+    }
+
+    // Database — izquierda, zona media
+    &--6 {
+      width: 56px;
+      height: 56px;
+      top: 50%;
+      left: 6%;
+      animation: float 9s 1.5s ease-in-out infinite;
+    }
+
+    // Llaves { } — abajo izquierda
+    &--7 {
+      width: 44px;
+      height: 44px;
+      bottom: 18%;
+      left: 4%;
+      animation: float 7s 4s ease-in-out infinite;
+    }
+
+    // Server — arriba centro-derecha
+    &--8 {
+      width: 38px;
+      height: 38px;
+      top: 6%;
+      left: 42%;
+      animation: float 11s 2s ease-in-out infinite;
+    }
+
+    // Hash # — centro pantalla, flotando
+    &--9 {
+      width: 60px;
+      height: 60px;
+      top: 38%;
+      left: 22%;
+      animation: float 13s 0s ease-in-out infinite;
+      opacity: 0.25; // más sutil por estar en zona de contenido
+    }
+
+    // Cloud deploy — esquina superior derecha alta
+    &--10 {
+      width: 46px;
+      height: 46px;
+      top: 5%;
+      right: 4%;
+      animation: float 9s 3.5s ease-in-out infinite;
+    }
+
+    // Package/npm — centro-derecha, zona baja
+    &--11 {
+      width: 36px;
+      height: 36px;
+      bottom: 30%;
+      right: 3%;
+      animation: float 8s 5s ease-in-out infinite;
+    }
+
+    // Activity waveform — abajo centro
+    &--12 {
+      width: 50px;
+      height: 50px;
+      bottom: 8%;
+      left: 35%;
+      animation: float 10s 1s ease-in-out infinite;
+    }
+
+    // Sliders/config — abajo derecha
+    &--13 {
+      width: 42px;
+      height: 42px;
+      bottom: 5%;
+      right: 28%;
+      animation: float 7s 2.5s ease-in-out infinite;
+    }
+
+    // Link/chain — izquierda, zona baja-media
+    &--14 {
+      width: 34px;
+      height: 34px;
+      bottom: 42%;
+      left: 14%;
+      animation: float 12s 4.5s ease-in-out infinite;
+    }
+
+    // Wifi/API signal — arriba, zona izquierda-media
+    &--15 {
+      width: 38px;
+      height: 38px;
+      top: 20%;
+      left: 30%;
+      animation: float 9s 6s ease-in-out infinite;
+      opacity: 0.3; // sutil, zona cerca del heading
     }
 
     @media (max-width: 768px) {

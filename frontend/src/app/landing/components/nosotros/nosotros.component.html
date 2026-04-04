@@ -1,50 +1,98 @@
 <section class="nosotros" id="nosotros">
   <div class="nosotros__inner container">
 
-    <div class="nosotros__text">
-      <span class="nosotros__eyebrow">Nosotros</span>
-      <h2 class="nosotros__title">
-        Flujo continuo<br>
-        <span class="nosotros__title-muted">con rigor técnico.</span>
-      </h2>
-      <p class="nosotros__body">
-        VIMU DEVS SpA nació para llevar rigor de ingeniería al mundo real. Hoy el núcleo técnico está liderado por un programador y arquitecto junior full stack, con capacidad de incorporar colaboradores según la magnitud del proyecto.
-      </p>
-      <p class="nosotros__body">
-        Creemos en una consultoría seria, en decisiones bien justificadas y en entregar resultados con estándar profesional, incluso siendo un equipo joven.
-      </p>
+    <header class="nosotros__header">
+      <div class="nosotros__text-wrapper">
+        <span class="nosotros__eyebrow">Nosotros</span>
+        <h2 class="nosotros__title">
+          Compromiso<br>
+          <span class="nosotros__title-muted">y herramientas reales.</span>
+        </h2>
+        <p class="nosotros__body">
+          VIMU DEVS nació de una convicción: no necesitás un equipo enorme para construir software serio. Con las
+          herramientas correctas, foco técnico y metodología probada, un equipo pequeño puede entregar soluciones que
+          escalan.
+        </p>
+      </div>
+    </header>
+
+    <div class="nosotros__content">
 
       <div class="nosotros__photo">
         <div class="nosotros__photo-frame">
           <img src="assets/images/MATIAS 3.jpg" alt="Matías, fundador de VIMU DEVS" />
         </div>
-        <p class="nosotros__photo-note">Foto del fundador pendiente de ubicación final en assets.</p>
+        <p class="nosotros__photo-note">Matías Villegas — Founder & Lead Engineer</p>
       </div>
 
-      <a routerLink="/agendar" class="nosotros__cta">
-        Cotiza con nosotros
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-          fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-        </svg>
-      </a>
+      <div class="nosotros__stats">
+        <article class="nosotros__stat nosotros__stat--technical">
+          <div class="nosotros__stat-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" />
+              <path d="M12 12 20 7.5" />
+              <path d="M12 12V21" />
+              <path d="M12 12 4 7.5" />
+            </svg>
+          </div>
+          <span class="nosotros__stat-value">Criterio Técnico</span>
+          <span class="nosotros__stat-label">Cada decisión de arquitectura tiene un fundamento. No improvisamos stack ni estructura: elegimos lo que conviene al proyecto, no lo que está de moda.</span>
+        </article>
+
+        <article class="nosotros__stat nosotros__stat--no-fluff">
+          <div class="nosotros__stat-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 7h16" />
+              <path d="M6 12h12" />
+              <path d="M8 17h8" />
+              <path d="M4 7l2-3h12l2 3" />
+            </svg>
+          </div>
+          <span class="nosotros__stat-value">Sin Relleno</span>
+          <span class="nosotros__stat-label">Entregamos producto que funciona, no reportes de progreso. El foco está en resolver el problema real y dejar algo que el equipo pueda operar desde el día uno.</span>
+        </article>
+
+        <article class="nosotros__stat nosotros__stat--scale">
+          <div class="nosotros__stat-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19V5" />
+              <path d="M4 19h16" />
+              <path d="m7 15 4-4 3 3 6-6" />
+              <path d="M17 8h3v3" />
+            </svg>
+          </div>
+          <span class="nosotros__stat-value">Escala Real</span>
+          <span class="nosotros__stat-label">Diseñamos pensando en lo que viene. Performance, integraciones y evolución forman parte del diseño inicial, no de una refactorización costosa después.</span>
+        </article>
+
+        <article class="nosotros__stat nosotros__stat--compact">
+          <div class="nosotros__stat-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 3h5v5" />
+              <path d="M8 21H3v-5" />
+              <path d="M21 3 14 10" />
+              <path d="M3 21 10 14" />
+            </svg>
+          </div>
+          <span class="nosotros__stat-value">Equipo Compacto</span>
+          <span class="nosotros__stat-label">Un equipo pequeño decide rápido y responde directo. Sin capas intermedias, sin reuniones de alineación: lo que acordamos hoy se refleja en código mañana.</span>
+        </article>
+      </div>
+      <div class="nosotros__cta-wrapper">
+        <a routerLink="/agendar" class="nosotros__cta">
+          Cotiza con nosotros
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+
     </div>
-
-    <div class="nosotros__stats">
-      <div class="nosotros__stat">
-        <span class="nosotros__stat-value">01 / RIGOR</span>
-        <span class="nosotros__stat-label">Enfoque y estándar de ingeniería</span>
-      </div>
-      <div class="nosotros__stat">
-        <span class="nosotros__stat-value">ESCALA</span>
-        <span class="nosotros__stat-label">Crecemos según la magnitud del proyecto</span>
-      </div>
-      <div class="nosotros__stat">
-        <span class="nosotros__stat-value">IA</span>
-        <span class="nosotros__stat-label">Como ventaja operativa</span>
-      </div>
-    </div>
-
   </div>
 </section>

@@ -1,6 +1,10 @@
 import crypto from 'node:crypto';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'vimu-dev-jwt-secret';
+const JWT_SECRET = process.env.JWT_SECRET;
+
+if (!JWT_SECRET) {
+  throw new Error('JWT_SECRET must be set');
+}
 
 type JwtPayload = Record<string, unknown> & {
   sub: string;

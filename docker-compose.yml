@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-admin}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-admin}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
       POSTGRES_DB: ${POSTGRES_DB:-vimu_devs_db}
     ports:
       - "5432:5432"
@@ -38,10 +38,10 @@ services:
       - DB_HOST=postgres
       - DB_PORT=5432
       - DB_USER=${POSTGRES_USER:-admin}
-      - DB_PASSWORD=${POSTGRES_PASSWORD:-admin}
+      - DB_PASSWORD=${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
       - DB_NAME=${POSTGRES_DB:-vimu_devs_db}
-      - JWT_SECRET=${JWT_SECRET:-super_secret_vimu_devs}
-      - RESEND_API_KEY=${RESEND_API_KEY:-replace_me}
+      - JWT_SECRET=${JWT_SECRET:?set JWT_SECRET in .env}
+      - RESEND_API_KEY=${RESEND_API_KEY:?set RESEND_API_KEY in .env}
     depends_on:
       postgres:
         condition: service_healthy

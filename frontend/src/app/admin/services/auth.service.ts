@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable, tap } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 export interface LoginResponse {
   message: string;
@@ -17,7 +18,7 @@ export class AdminAuthService {
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Observable<void> {
-    return this.http.post<LoginResponse>('/api/auth/login', { email, password }).pipe(
+    return this.http.post<LoginResponse>(`${environment.apiUrl}/api/auth/login`, { email, password }).pipe(
       tap(response => localStorage.setItem(TOKEN_KEY, response.data.token)),
       map(() => void 0)
     );

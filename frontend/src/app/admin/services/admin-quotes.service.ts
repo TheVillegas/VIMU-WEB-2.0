@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AdminAuthService } from './auth.service';
+import { environment } from '../../../environments/environment';
 
 import { QuoteRecord } from '../../../../../shared/interfaces/quote.interface';
 import { QuoteStatus } from '../../../../../shared/enums';
@@ -27,7 +28,7 @@ export class AdminQuotesService {
   }
 
   getStats(): Observable<{ data: QuoteStats }> {
-    return this.http.get<{ data: QuoteStats }>('/api/admin/stats', { headers: this.headers() });
+    return this.http.get<{ data: QuoteStats }>(`${environment.apiUrl}/api/admin/stats`, { headers: this.headers() });
   }
 
   getQuotes(filters?: { status?: QuoteStatus; from?: string; to?: string }): Observable<{ data: QuoteRecord[] }> {
@@ -37,14 +38,14 @@ export class AdminQuotesService {
     if (filters?.from) params['from'] = filters.from;
     if (filters?.to) params['to'] = filters.to;
 
-    return this.http.get<{ data: QuoteRecord[] }>('/api/admin/quotes', {
+    return this.http.get<{ data: QuoteRecord[] }>(`${environment.apiUrl}/api/admin/quotes`, {
       headers: this.headers(),
       params
     });
   }
 
   getQuote(id: string): Observable<{ data: QuoteRecord }> {
-    return this.http.get<{ data: QuoteRecord }>(`/api/admin/quotes/${id}`, { headers: this.headers() });
+    return this.http.get<{ data: QuoteRecord }>(`${environment.apiUrl}/api/admin/quotes/${id}`, { headers: this.headers() });
   }
 
   markViewed(id: string): Observable<{ data: QuoteRecord }> {
@@ -52,6 +53,6 @@ export class AdminQuotesService {
   }
 
   updateStatus(id: string, status: QuoteStatus): Observable<{ data: QuoteRecord }> {
-    return this.http.patch<{ data: QuoteRecord }>(`/api/admin/quotes/${id}/status`, { status }, { headers: this.headers() });
+    return this.http.patch<{ data: QuoteRecord }>(`${environment.apiUrl}/api/admin/quotes/${id}/status`, { status }, { headers: this.headers() });
   }
 }

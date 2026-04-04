@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 interface Paso {
   number: string;
+  icon: 'search' | 'design' | 'build' | 'support';
   title: string;
   description: string;
 }
@@ -16,23 +17,27 @@ export class ProcesosComponent {
   pasos: Paso[] = [
     {
       number: '01',
+      icon: 'search',
       title: 'Diagnóstico',
-      description: 'Entendemos el negocio, los objetivos y el problema real antes de proponer una solución.'
+      description: 'Antes de proponer cualquier solución, entendemos el problema real. Relevamos objetivos, restricciones técnicas y dolores operativos para que lo que se construya tenga sentido desde el inicio.'
     },
     {
       number: '02',
-      title: 'Arquitectura',
-      description: 'Diseñamos la solución técnica con criterio. Elegimos el stack correcto para la escala del proyecto, no el de moda.'
+      icon: 'design',
+      title: 'Diseño',
+      description: 'Definimos arquitectura y flujo de usuario antes de escribir código. Stack, estructura y experiencia se diseñan juntos para que el proyecto arranque con dirección clara y espacio para crecer.'
     },
     {
       number: '03',
-      title: 'Ejecución',
-      description: 'Desarrollo iterativo con entregas visibles. El avance se revisa de forma continua, sin sorpresas.'
+      icon: 'build',
+      title: 'Construcción',
+      description: 'Avanzamos en ciclos cortos con entregas revisables. Cada iteración se valida antes de continuar: así los desvíos se detectan cuando son baratos de corregir, no al final.'
     },
     {
       number: '04',
-      title: 'Presencia Continua',
-      description: 'No desaparecemos al entregar. Acompañamos mientras el producto crece y necesita evolución.'
+      icon: 'support',
+      title: 'Acompañamiento',
+      description: 'No desaparecemos en el deploy. Monitoreamos, ajustamos y evolucionamos el producto junto con tu negocio para que lo entregado siga siendo útil a medida que crecés.'
     }
   ];
 }
