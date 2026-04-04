@@ -162,7 +162,7 @@
     grid-column: 2; // Se posiciona bajo la columna de los stats
     display: flex;
     justify-content: flex-end; // Lo manda al "recuadro negro" de tu dibujo
-    margin-top: -5rem; // Subir el botón reduciendo el espacio efectivo del gap
+    margin-top: -1rem; // Subir el botón reduciendo el espacio efectivo del gap
 
     @media (max-width: 1024px) {
       grid-column: 1;
