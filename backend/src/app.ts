@@ -7,18 +7,13 @@ import adminRoutes from './modules/admin/admin.routes';
 
 const app = express();
 
-app.use(express.json());
-app.use(helmet());
-const rawOrigin = process.env.ALLOWED_ORIGIN || 'http://localhost:4200';
 const allowedOrigins = [
-  rawOrigin,
-  rawOrigin.startsWith('https://') ? rawOrigin.replace('https://', 'http://') : rawOrigin.replace('http://', 'https://'),
-  `https://www.vimudevs.com`,
-  `https://vimudevs.com`,
+  'https://www.vimudevs.com',
+  'https://vimudevs.com',
   'http://localhost:4200',
 ];
 
-app.use(cors({
+const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -26,8 +21,15 @@ app.use(cors({
       callback(new Error(`CORS blocked: ${origin}`));
     }
   },
-  credentials: true
-}));
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
+app.use(helmet());
+app.use(express.json());
 
 // Healthcheck endpoint
 app.get('/api/health', (req, res) => {
