@@ -5,7 +5,7 @@ import path from 'path';
 // For local dev where .env is at the root
 dotenv.config({ path: path.resolve(__dirname, '../../../.env') });
 
-const databaseUrl = process.env.DATABASE_URL?.trim();
+const databaseUrl = (process.env.DATABASE_URL || process.env.DATABASE_PUBLIC_URL)?.trim();
 const legacyVars = ['DB_HOST', 'DB_USER', 'DB_NAME', 'DB_PASSWORD'] as const;
 const missingLegacyVars = legacyVars.filter((key) => !process.env[key]);
 
