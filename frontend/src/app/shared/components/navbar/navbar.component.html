@@ -1,7 +1,7 @@
 <header class="navbar" [class.navbar--scrolled]="scrolled()">
   <div class="navbar__inner container">
 
-    <a href="/" class="navbar__logo">VIMU DEVS</a>
+    <a routerLink="/" class="navbar__logo">VIMU DEVS</a>
 
     <nav class="navbar__nav">
       @for (link of navLinks; track link.label) {

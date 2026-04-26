@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { retry } from 'rxjs';
+import { retry, timeout } from 'rxjs';
 
 import { ProjectType, Timeline, BudgetTier } from '../../../../../../shared/enums';
 import { environment } from '../../../../environments/environment';
@@ -83,7 +83,8 @@ export class AgendarPageComponent implements OnInit {
     };
 
     this.http.post(`${environment.apiUrl}/api/quotes`, payload).pipe(
-      retry({ count: 2, delay: 3000 })
+      timeout({ first: 15000 }),
+      retry({ count: 1, delay: 1500 })
     ).subscribe({
       next: () => {
         this.loading = false;
@@ -94,7 +95,7 @@ export class AgendarPageComponent implements OnInit {
       },
       error: () => {
         this.loading = false;
-        this.error = 'No pudimos enviar tu solicitud. Intentá nuevamente.';
+        this.error = 'No pudimos enviar tu solicitud. Revisá tu conexión e intentá nuevamente. Si persiste, escríbenos directo a proyectos@vimudevs.com.';
       }
     });
   }

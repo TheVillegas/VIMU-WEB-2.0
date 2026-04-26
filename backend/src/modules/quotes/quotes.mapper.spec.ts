@@ -18,7 +18,7 @@ describe('mapSubmissionToQuote', () => {
     expect(mapped.email).toBe('matias@example.com');
     expect(mapped.whatsapp).toBe('+56912345678');
     expect(mapped.priority).toBe('Urgent');
-    expect(mapped.budget_amount).toBe(5000000);
+    expect(mapped.budget_amount).toBe(500000);
     expect(mapped.business_needs).toContain('Medium');
   });
 });

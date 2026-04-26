@@ -6,10 +6,16 @@ import adminRoutes from './modules/admin/admin.routes';
 
 const app = express();
 
+const configuredOrigins = (process.env.ALLOWED_ORIGINS || process.env.ALLOWED_ORIGIN || '')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 const allowedOrigins = [
   'https://www.vimudevs.com',
   'https://vimudevs.com',
   'http://localhost:4200',
+  ...configuredOrigins,
 ];
 
 app.use((req, res, next) => {

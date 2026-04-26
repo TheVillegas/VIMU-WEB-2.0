@@ -1,16 +1,21 @@
 import { Router } from 'express';
-import { submitQuote } from './quotes.service';
 import { validateQuoteSubmission, ValidationError } from './quotes.validation';
+import { QuoteSubmissionInput } from './quotes.types';
+
+type SubmitQuoteHandler = (payload: QuoteSubmissionInput) => Promise<unknown>;
 
 export function buildQuotesRouter(
-  submitQuoteHandler = submitQuote
+  submitQuoteHandler?: SubmitQuoteHandler
 ) {
   const router = Router();
 
   router.post('/', async (req, res, next) => {
     try {
       const payload = validateQuoteSubmission(req.body);
-      const created = await submitQuoteHandler(payload);
+      const handler = submitQuoteHandler ?? ((validPayload: QuoteSubmissionInput) =>
+        import('./quotes.service').then(({ submitQuote }) => submitQuote(validPayload))
+      );
+      const created = await handler(payload);
 
       res.status(201).json({
         message: 'Quote submitted successfully',

@@ -1,4 +1,5 @@
 import { Component, HostListener, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,8 @@ import { Component, HostListener, signal } from '@angular/core';
 })
 export class NavbarComponent {
   scrolled = signal(false);
+
+  constructor(private router: Router) {}
 
   navLinks = [
     { label: 'Servicios',  fragment: 'servicios' },
@@ -22,6 +25,13 @@ export class NavbarComponent {
   }
 
   scrollTo(fragment: string) {
-    document.getElementById(fragment)?.scrollIntoView({ behavior: 'smooth' });
+    const currentPath = this.router.url.split('#')[0] || '/';
+
+    if (currentPath === '/') {
+      document.getElementById(fragment)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
+
+    this.router.navigate(['/'], { fragment });
   }
 }

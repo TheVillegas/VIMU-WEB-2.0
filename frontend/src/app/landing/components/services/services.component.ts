@@ -18,38 +18,39 @@ export class ServicesComponent {
   services: Service[] = [
     {
       number: '01',
-      title: 'Consultoría y Relevamiento',
-      description: 'Antes de tocar una línea de código, hacemos un diagnóstico técnico serio para evitar que el cliente pague por funcionalidades innecesarias.',
-      items: ['Definición de alcance', 'Validación técnica', 'Plan de ejecución'],
+      title: 'Diagnóstico antes de construir',
+      description: 'Primero entendemos el problema, el negocio y las restricciones. Así evitamos venderte funcionalidades bonitas que no resuelven nada.',
+      items: ['Alcance claro', 'Riesgos visibles', 'Plan entendible'],
       icon: 'briefcase'
     },
     {
       number: '02',
-      title: 'Desarrollo Full-Stack Escalable',
-      description: 'Construcción de aplicaciones web y móviles personalizadas con arquitecturas modernas que crecen junto al negocio.',
-      items: ['Web apps', 'Mobile-ready', 'Arquitectura moderna'],
+      title: 'Soluciones full-stack',
+      description: 'Full-stack significa que nos hacemos cargo de la experiencia completa: pantalla, lógica, base de datos, seguridad e integraciones.',
+      items: ['Frontend', 'Backend', 'Base de datos'],
       icon: 'layers'
     },
     {
       number: '03',
-      title: 'Modernización de Procesos',
-      description: 'Transformamos flujos manuales o legados en sistemas digitales eficientes que ordenan y aceleran la operación.',
-      items: ['Digitalización', 'Automatización', 'Optimización operativa'],
+      title: 'Procesos sin Excel eterno',
+      description: 'Convertimos tareas manuales, formularios sueltos y flujos repetidos en sistemas simples que ordenan la operación diaria.',
+      items: ['Digitalización', 'Automatización', 'Menos reproceso'],
       icon: 'refresh'
     },
     {
       number: '04',
-      title: 'Cloud y Serverless',
-      description: 'Diseño de soluciones en la nube optimizadas para costo y escalabilidad, ideales para evitar infraestructura ociosa.',
-      items: ['Infraestructura eficiente', 'Escalado flexible', 'Costos controlados'],
+      title: 'Infraestructura lista para crecer',
+      description: 'Publicamos tu solución en la nube con costos controlados, monitoreo y una base técnica que no se rompe al primer aumento de usuarios.',
+      items: ['Deploy seguro', 'Escalado flexible', 'Costos controlados'],
       icon: 'cloud'
     },
     {
       number: '05',
-      title: 'IA y Agentes',
-      description: 'Implementamos flujos potenciados por LLMs para automatizar tareas, mejorar atención o acelerar el procesamiento interno.',
-      items: ['Automatización con IA', 'Agentes', 'Procesamiento asistido'],
+      title: 'IA aplicada al trabajo real',
+      description: 'Usamos IA donde aporta valor concreto: responder, clasificar, resumir, asistir decisiones o acelerar tareas internas repetitivas.',
+      items: ['Automatización con IA', 'Asistentes', 'Flujos internos'],
       icon: 'spark'
     }
   ];
 }
+
