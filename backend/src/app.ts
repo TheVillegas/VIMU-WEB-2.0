@@ -6,6 +6,10 @@ import adminRoutes from './modules/admin/admin.routes';
 
 const app = express();
 
+// Railway/Netlify sit in front of the app and send X-Forwarded-* headers.
+// express-rate-limit needs Express to trust that proxy layer to identify clients correctly.
+app.set('trust proxy', 1);
+
 const configuredOrigins = (process.env.ALLOWED_ORIGINS || process.env.ALLOWED_ORIGIN || '')
   .split(',')
   .map((origin) => origin.trim())
