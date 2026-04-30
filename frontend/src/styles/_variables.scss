@@ -4,19 +4,19 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 :root {
-  // Colors
-  --color-bg:             #131313;
-  --color-surface:        #1a1a1a;
+  // Colors — VIMU DEVS brand palette
+  --color-bg:             #0D0D0D;
+  --color-surface:        #1A1A1A;
   --color-surface-high:   #2a2a2a;
   --color-surface-higher: #353534;
-  --color-text-primary:   #e5e2e1;
+  --color-text-primary:   #FFFFFF;
   --color-text-secondary: #c7c6c6;
   --color-text-muted:     #94979e;
   --color-border:         #474747;
 
-  // Accent — brand gold from VIMU DEVS SpA card
-  --color-accent:      #c5a47e;
-  --color-accent-glow: rgba(197, 164, 126, 0.12);
+  // Accent — VIMU gold #F5B33C
+  --color-accent:      #F5B33C;
+  --color-accent-glow: rgba(245, 179, 60, 0.12);
 
   // Typography
   // NOTE: 'Plus Jakarta Sans' is a Neue Regrade substitute.

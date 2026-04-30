@@ -39,6 +39,11 @@
               },
               {
                 "glob": "**/*",
+                "input": "src/assets/logos",
+                "output": "assets/logos"
+              },
+              {
+                "glob": "**/*",
                 "input": "public"
               },
               {
@@ -47,15 +52,7 @@
                 "output": "/"
               }
             ],
-            "styles": ["src/styles.scss"],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "security": {
-              "allowedHosts": []
-            },
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {

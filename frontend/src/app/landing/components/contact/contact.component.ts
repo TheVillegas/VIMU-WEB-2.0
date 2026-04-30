@@ -1,13 +1,7 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser, CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-
-interface CotizacionDto {
-  nombre: string;
-  contacto: string;
-  descripcion: string;
-}
+import { ResendService, ContactFormData } from '../../../core/services/resend.service';
 
 type Status = 'idle' | 'loading' | 'success' | 'error';
 
@@ -24,13 +18,12 @@ export class ContactComponent {
 
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: object
+    private resendService: ResendService
   ) {
     this.form = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
-      contacto: ['', Validators.required],
-      descripcion: ['', [Validators.required, Validators.minLength(10)]]
+      contacto: ['', [Validators.required, Validators.minLength(5)]],
+      project: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
 
@@ -38,9 +31,10 @@ export class ContactComponent {
     if (this.form.invalid || this.status === 'loading') return;
 
     this.status = 'loading';
-    const payload: CotizacionDto = this.form.value;
+    const { nombre, contacto, project } = this.form.value;
+    const data: ContactFormData = { name: nombre, contact: contacto, project };
 
-    this.http.post('/api/cotizaciones', payload).subscribe({
+    this.resendService.sendContactForm(data).subscribe({
       next: () => {
         this.status = 'success';
         this.form.reset();

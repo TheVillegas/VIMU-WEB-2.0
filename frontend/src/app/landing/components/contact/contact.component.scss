@@ -20,13 +20,6 @@
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
     color: var(--color-text-primary);
-    margin: 0 0 0.75rem;
-  }
-
-  &__sub {
-    color: #a09e9d;
-    font-size: 1rem;
-    line-height: 1.6;
     margin: 0;
   }
 
@@ -88,17 +81,20 @@
   }
 
   &__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
     background: var(--color-accent);
     border: none;
     border-radius: 8px;
-    color: #131313;
+    color: #0D0D0D;
     cursor: pointer;
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: 0.9375rem;
     font-weight: 600;
     padding: 0.875rem 2rem;
     transition: opacity 0.2s;
-    align-self: flex-start;
 
     &:disabled {
       opacity: 0.6;
@@ -117,10 +113,13 @@
     gap: 1rem;
     padding: 3rem 2rem;
     background: var(--color-surface);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-accent);
     border-radius: 12px;
     text-align: center;
-    color: var(--color-accent);
+
+    svg {
+      color: var(--color-accent);
+    }
 
     p {
       color: var(--color-text-primary);

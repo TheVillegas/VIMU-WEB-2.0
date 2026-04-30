@@ -2,10 +2,7 @@
   <div class="contact__inner container">
 
     <div class="contact__header">
-      <h2 class="contact__title">¿Listo para trabajar juntos?</h2>
-      <p class="contact__sub">
-        Contanos de tu proyecto y te respondemos con un diagnóstico claro, sin humo ni tecnicismos.
-      </p>
+      <h2 class="contact__title">¿Hablamos de tu proyecto?</h2>
     </div>
 
     @if (status === 'success') {
@@ -15,7 +12,7 @@
           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
           <polyline points="22 4 12 14.01 9 11.01" />
         </svg>
-        <p>¡Tu consulta fue enviada! Te respondemos a la brevedad.</p>
+        <p>Tu solicitud fue enviada. Te respondemos a la brevedad.</p>
       </div>
     } @else {
       <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
@@ -36,7 +33,7 @@
         </div>
 
         <div class="contact__field">
-          <label class="contact__label" for="contacto">Email o WhatsApp</label>
+          <label class="contact__label" for="contacto">Contacto (email o WhatsApp)</label>
           <input
             id="contacto"
             class="contact__input"
@@ -51,15 +48,15 @@
         </div>
 
         <div class="contact__field">
-          <label class="contact__label" for="descripcion">¿Qué necesitás?</label>
+          <label class="contact__label" for="project">Descripción del proyecto</label>
           <textarea
-            id="descripcion"
+            id="project"
             class="contact__input contact__input--textarea"
-            formControlName="descripcion"
+            formControlName="project"
             placeholder="Describí brevemente tu proyecto o necesidad..."
             rows="5"
           ></textarea>
-          @if (form.get('descripcion')?.invalid && form.get('descripcion')?.touched) {
+          @if (form.get('project')?.invalid && form.get('project')?.touched) {
             <span class="contact__error">Describí tu proyecto (mínimo 10 caracteres).</span>
           }
         </div>
@@ -73,7 +70,14 @@
           type="submit"
           [disabled]="status === 'loading'"
         >
-          {{ status === 'loading' ? 'Enviando...' : 'Enviar cotización' }}
+          {{ status === 'loading' ? 'Enviando...' : 'Enviar solicitud' }}
+          @if (status !== 'loading') {
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          }
         </button>
 
       </form>
