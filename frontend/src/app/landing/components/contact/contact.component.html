@@ -1,92 +1,83 @@
 <section class="contact" id="contacto">
   <div class="contact__inner container">
 
-    <div class="contact__text">
-      <span class="contact__eyebrow">Hablemos</span>
-      <h2 class="contact__title">
-        ¿Listo para construir<br>
-        <span class="contact__title-muted">algo que funcione?</span>
-      </h2>
+    <div class="contact__header">
+      <h2 class="contact__title">¿Listo para trabajar juntos?</h2>
       <p class="contact__sub">
-        Si querés conversar sobre un proyecto, una modernización o una idea con IA, estos son los canales directos.
+        Contanos de tu proyecto y te respondemos con un diagnóstico claro, sin humo ni tecnicismos.
       </p>
     </div>
 
-    <div class="contact__channels">
-
-      <a href="mailto:proyectos&#64;vimudevs.com" class="contact__channel">
-        <div class="contact__channel-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect width="20" height="16" x="2" y="4" rx="2" />
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-          </svg>
-        </div>
-        <div class="contact__channel-meta">
-          <span class="contact__channel-label">Email</span>
-          <span class="contact__channel-value">proyectos&#64;vimudevs.com</span>
-        </div>
-        <svg class="contact__channel-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
+    @if (status === 'success') {
+      <div class="contact__success">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+          <polyline points="22 4 12 14.01 9 11.01" />
         </svg>
-      </a>
-
-      <a href="https://wa.me/56988621058" class="contact__channel contact__channel--wa">
-        <div class="contact__channel-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-          </svg>
-        </div>
-        <div class="contact__channel-meta">
-          <span class="contact__channel-label">WhatsApp</span>
-          <span class="contact__channel-value">+56 9 8862 1058</span>
-        </div>
-        <svg class="contact__channel-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
-        </svg>
-      </a>
-      <a href="https://instagram.com/vimudevs" class="contact__channel contact__channel--ig">
-        <div class="contact__channel-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect width="20" height="20" x="2" y="2" rx="6" />
-            <circle cx="12" cy="12" r="3" />
-            <circle cx="17.5" cy="6.5" r="1.5" />
-          </svg>
-        </div>
-        <div class="contact__channel-meta">
-          <span class="contact__channel-label">Instagram</span>
-          <span class="contact__channel-value">@vimudevs</span>
-        </div>
-        <svg class="contact__channel-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
-        </svg>
-      </a>
-
-      <div class="contact__cta-wrapper">
-        <a routerLink="/agendar" class="contact__cta">
-          Cotiza con nosotros
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
-        </a>
+        <p>¡Tu consulta fue enviada! Te respondemos a la brevedad.</p>
       </div>
+    } @else {
+      <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
 
-    </div>
+        <div class="contact__field">
+          <label class="contact__label" for="nombre">Nombre</label>
+          <input
+            id="nombre"
+            class="contact__input"
+            type="text"
+            formControlName="nombre"
+            placeholder="¿Cómo te llamás?"
+            autocomplete="name"
+          />
+          @if (form.get('nombre')?.invalid && form.get('nombre')?.touched) {
+            <span class="contact__error">Ingresá tu nombre (mínimo 2 caracteres).</span>
+          }
+        </div>
 
+        <div class="contact__field">
+          <label class="contact__label" for="contacto">Email o WhatsApp</label>
+          <input
+            id="contacto"
+            class="contact__input"
+            type="text"
+            formControlName="contacto"
+            placeholder="para poder responderte"
+            autocomplete="email"
+          />
+          @if (form.get('contacto')?.invalid && form.get('contacto')?.touched) {
+            <span class="contact__error">Ingresá un email o número de WhatsApp.</span>
+          }
+        </div>
 
+        <div class="contact__field">
+          <label class="contact__label" for="descripcion">¿Qué necesitás?</label>
+          <textarea
+            id="descripcion"
+            class="contact__input contact__input--textarea"
+            formControlName="descripcion"
+            placeholder="Describí brevemente tu proyecto o necesidad..."
+            rows="5"
+          ></textarea>
+          @if (form.get('descripcion')?.invalid && form.get('descripcion')?.touched) {
+            <span class="contact__error">Describí tu proyecto (mínimo 10 caracteres).</span>
+          }
+        </div>
+
+        @if (status === 'error') {
+          <p class="contact__error-global">Hubo un problema al enviar. Intentá de nuevo.</p>
+        }
+
+        <button
+          class="contact__submit"
+          type="submit"
+          [disabled]="status === 'loading'"
+        >
+          {{ status === 'loading' ? 'Enviando...' : 'Enviar cotización' }}
+        </button>
+
+      </form>
+    }
 
   </div>
 </section>

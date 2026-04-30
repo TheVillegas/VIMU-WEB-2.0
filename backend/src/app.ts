@@ -3,6 +3,7 @@ import helmet from 'helmet';
 import quotesRoutes from './modules/quotes/quotes.routes';
 import authRoutes from './modules/auth/auth.routes';
 import adminRoutes from './modules/admin/admin.routes';
+import cotizacionesRoutes from './modules/cotizaciones/cotizaciones.routes';
 
 const app = express();
 
@@ -49,6 +50,7 @@ app.get('/api/health', (req, res) => {
 app.use('/api/quotes', quotesRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/cotizaciones', cotizacionesRoutes);
 
 app.use((err: unknown, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
   console.error('[Server Error]', err);

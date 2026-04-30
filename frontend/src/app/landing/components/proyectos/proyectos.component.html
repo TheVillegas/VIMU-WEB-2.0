@@ -1,0 +1,21 @@
+<section class="proyectos" id="proyectos">
+  <div class="proyectos__inner container">
+
+    <h2 class="proyectos__title">Proyectos que lanzamos</h2>
+
+    <div class="proyectos__grid">
+      @for (proyecto of proyectos; track proyecto.title) {
+        <article class="proyectos__card">
+          <div class="proyectos__tags">
+            @for (tag of proyecto.tags; track tag) {
+              <span class="proyectos__tag">{{ tag }}</span>
+            }
+          </div>
+          <h3 class="proyectos__card-title">{{ proyecto.title }}</h3>
+          <p class="proyectos__card-desc">{{ proyecto.description }}</p>
+        </article>
+      }
+    </div>
+
+  </div>
+</section>

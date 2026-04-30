@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 interface Service {
   number: string;
@@ -10,7 +11,8 @@ interface Service {
 
 @Component({
   selector: 'app-services',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })

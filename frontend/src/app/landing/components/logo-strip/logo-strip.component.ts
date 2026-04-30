@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-logo-strip',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './logo-strip.component.html',
   styleUrl: './logo-strip.component.scss'
 })

@@ -1,0 +1,49 @@
+<section class="porque" id="porque">
+  <div class="porque__inner container">
+
+    <h2 class="porque__title">Por qué VIMU DEVS</h2>
+
+    <div class="porque__grid">
+      @for (razon of razones; track razon.title) {
+        <div class="porque__card">
+          <div class="porque__icon" aria-hidden="true">
+
+            @if (razon.icon === 'check') {
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            }
+
+            @if (razon.icon === 'code') {
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+              </svg>
+            }
+
+            @if (razon.icon === 'clock') {
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            }
+
+            @if (razon.icon === 'shield') {
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            }
+
+          </div>
+          <h3 class="porque__card-title">{{ razon.title }}</h3>
+          <p class="porque__card-desc">{{ razon.description }}</p>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

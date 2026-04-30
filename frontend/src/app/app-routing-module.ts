@@ -14,14 +14,6 @@ const routes: Routes = [
     }
   },
   {
-    path: 'agendar',
-    loadChildren: () => import('./agendar/agendar.module').then(m => m.AgendarModule)
-  },
-  {
-    path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
-  },
-  {
     path: 'privacidad',
     loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule),
     data: {
@@ -47,7 +39,8 @@ const routes: Routes = [
       description: 'Política de cookies de VIMU DEVS SpA. Información sobre las cookies que utilizamos.',
       canonical: `${BASE_URL}/cookies`
     }
-  }
+  },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
