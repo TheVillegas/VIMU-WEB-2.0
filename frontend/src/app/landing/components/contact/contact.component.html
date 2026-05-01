@@ -1,87 +1,57 @@
 <section class="contact" id="contacto">
   <div class="contact__inner container">
+    <header class="contact__header">
+      <p class="section-kicker">Cotizaci&oacute;n</p>
+      <h2 class="section-title">Cu&eacute;ntanos sobre<br /><span class="dim">tu proyecto.</span></h2>
+      <div class="section-line"></div>
+      <p class="section-copy">Complet&aacute; lo b&aacute;sico. Te respondemos personalmente para entender alcance, urgencia y presupuesto realista.</p>
+    </header>
 
-    <div class="contact__header">
-      <h2 class="contact__title">¿Hablamos de tu proyecto?</h2>
+    <div class="contact__layout">
+      <aside class="contact__promise">
+        <ul>
+          <li><span>01</span> Respuesta dentro de 48 horas h&aacute;biles.</li>
+          <li><span>02</span> Primera conversaci&oacute;n sin costo ni compromiso.</li>
+          <li><span>03</span> Propuesta seg&uacute;n objetivo, alcance y presupuesto.</li>
+          <li><span>04</span> Trato directo con quien dise&ntilde;a y construye.</li>
+        </ul>
+
+        <div class="contact__direct">
+          <p>Medios de comunicaci&oacute;n</p>
+          <a href="https://wa.me/56988621058" target="_blank" rel="noopener">WhatsApp VIMU DEVS</a>
+          <a href="https://instagram.com/vimudevs" target="_blank" rel="noopener">Instagram @vimudevs</a>
+          <a href="mailto:administracion&#64;vimudevs.com">administracion&#64;vimudevs.com</a>
+        </div>
+      </aside>
+
+      @if (status === 'success') {
+        <div class="contact__success"><span>OK</span><h3>Solicitud enviada</h3><p>Recibimos tu mensaje. Te contactamos en las pr&oacute;ximas 48 horas h&aacute;biles.</p></div>
+      } @else {
+        <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
+          <div class="contact__row">
+            <div class="contact__field">
+              <label class="contact__label" for="nombre">Nombre completo *</label>
+              <input id="nombre" class="contact__input" type="text" formControlName="nombre" placeholder="Tu nombre" autocomplete="name" />
+              @if (form.get('nombre')?.invalid && form.get('nombre')?.touched) { <span class="contact__error">Ingres&aacute; tu nombre.</span> }
+            </div>
+            <div class="contact__field">
+              <label class="contact__label" for="contacto-form">Email o WhatsApp *</label>
+              <input id="contacto-form" class="contact__input" type="text" formControlName="contacto" placeholder="tu@email.com o +56 9..." autocomplete="email" />
+              @if (form.get('contacto')?.invalid && form.get('contacto')?.touched) { <span class="contact__error">Ingres&aacute; un medio de contacto.</span> }
+            </div>
+          </div>
+
+          <div class="contact__field">
+            <label class="contact__label" for="project">&iquest;Qu&eacute; quer&eacute;s construir? *</label>
+            <textarea id="project" class="contact__input contact__input--textarea" formControlName="project" placeholder="Contanos qu&eacute; problema quer&eacute;s resolver, para qui&eacute;n y en qu&eacute; plazo..." rows="5"></textarea>
+            @if (form.get('project')?.invalid && form.get('project')?.touched) { <span class="contact__error">Describ&iacute; tu proyecto con un poco m&aacute;s de contexto.</span> }
+          </div>
+
+          @if (status === 'error') { <p class="contact__error-global">Hubo un problema al enviar. Si urge, escribinos por WhatsApp.</p> }
+          <button class="contact__submit" type="submit" [disabled]="status === 'loading'">{{ status === 'loading' ? 'Enviando...' : 'Enviar solicitud ->' }}</button>
+          <p class="contact__note">Respondemos dentro de 48 horas h&aacute;biles &middot; administracion@vimudevs.com</p>
+        </form>
+      }
     </div>
-
-    @if (status === 'success') {
-      <div class="contact__success">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-          <polyline points="22 4 12 14.01 9 11.01" />
-        </svg>
-        <p>Tu solicitud fue enviada. Te respondemos a la brevedad.</p>
-      </div>
-    } @else {
-      <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
-
-        <div class="contact__field">
-          <label class="contact__label" for="nombre">Nombre</label>
-          <input
-            id="nombre"
-            class="contact__input"
-            type="text"
-            formControlName="nombre"
-            placeholder="¿Cómo te llamás?"
-            autocomplete="name"
-          />
-          @if (form.get('nombre')?.invalid && form.get('nombre')?.touched) {
-            <span class="contact__error">Ingresá tu nombre (mínimo 2 caracteres).</span>
-          }
-        </div>
-
-        <div class="contact__field">
-          <label class="contact__label" for="contacto">Contacto (email o WhatsApp)</label>
-          <input
-            id="contacto"
-            class="contact__input"
-            type="text"
-            formControlName="contacto"
-            placeholder="para poder responderte"
-            autocomplete="email"
-          />
-          @if (form.get('contacto')?.invalid && form.get('contacto')?.touched) {
-            <span class="contact__error">Ingresá un email o número de WhatsApp.</span>
-          }
-        </div>
-
-        <div class="contact__field">
-          <label class="contact__label" for="project">Descripción del proyecto</label>
-          <textarea
-            id="project"
-            class="contact__input contact__input--textarea"
-            formControlName="project"
-            placeholder="Describí brevemente tu proyecto o necesidad..."
-            rows="5"
-          ></textarea>
-          @if (form.get('project')?.invalid && form.get('project')?.touched) {
-            <span class="contact__error">Describí tu proyecto (mínimo 10 caracteres).</span>
-          }
-        </div>
-
-        @if (status === 'error') {
-          <p class="contact__error-global">Hubo un problema al enviar. Intentá de nuevo.</p>
-        }
-
-        <button
-          class="contact__submit"
-          type="submit"
-          [disabled]="status === 'loading'"
-        >
-          {{ status === 'loading' ? 'Enviando...' : 'Enviar solicitud' }}
-          @if (status !== 'loading') {
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg>
-          }
-        </button>
-
-      </form>
-    }
-
   </div>
 </section>

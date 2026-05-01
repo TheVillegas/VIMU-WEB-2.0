@@ -1,79 +1,105 @@
-// ─── VIMU WEB 2.0 — Design System Tokens ────────────────────────────────────
-// Estética: "The Silent Authority"
-// Dark monochromatic, high precision, hierarchy through space + typography.
-// ─────────────────────────────────────────────────────────────────────────────
-
 :root {
-  // Colors — VIMU DEVS brand palette
-  --color-bg:             #0D0D0D;
-  --color-surface:        #1A1A1A;
-  --color-surface-high:   #2a2a2a;
-  --color-surface-higher: #353534;
-  --color-text-primary:   #FFFFFF;
-  --color-text-secondary: #c7c6c6;
-  --color-text-muted:     #94979e;
-  --color-border:         #474747;
+  /* Brand tokens from logo proposal */
+  --color-bg: #0d0d0d;
+  --color-surface: #141414;
+  --color-surface-soft: #1a1a1a;
+  --color-surface-high: #232323;
+  --color-text-primary: #f8f7f4;
+  --color-text-secondary: #c9c5bd;
+  --color-text-muted: #817d76;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(245, 179, 60, 0.28);
+  --color-accent: #f5b33c;
+  --color-accent-deep: #d99318;
+  --color-accent-glow: rgba(245, 179, 60, 0.14);
+  --color-success: #25d366;
 
-  // Accent — VIMU gold #F5B33C
-  --color-accent:      #F5B33C;
-  --color-accent-glow: rgba(245, 179, 60, 0.12);
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Poppins', sans-serif;
 
-  // Typography
-  // NOTE: 'Plus Jakarta Sans' is a Neue Regrade substitute.
-  // Replace with licensed Neue Regrade when available.
-  --font-heading: 'Plus Jakarta Sans', sans-serif;
-  --font-body:    'Inter', sans-serif;
+  --text-hero: clamp(3rem, 6.8vw, 6.1rem);
+  --text-section: clamp(2.25rem, 5vw, 4.5rem);
+  --text-heading: clamp(1.45rem, 2.4vw, 2.2rem);
+  --text-body: 1rem;
+  --text-label: 0.72rem;
 
-  // Type scale (desktop)
-  --text-hero:    11.5625rem; // ~185px
-  --text-section: 5.375rem;  // ~86px
-  --text-heading: 3.3125rem; // ~53px
-  --text-display: 2.0625rem; // ~33px
-  --text-body:    1.25rem;   // ~20px
-  --text-label:   0.8125rem; // ~13px
+  --space-section: clamp(5rem, 9vw, 8rem);
+  --space-block: clamp(2.5rem, 5vw, 4.5rem);
+  --space-gap: 1.5rem;
 
-  // Spacing rhythm
-  --space-section: 10rem;
-  --space-block:   5rem;
-  --space-gap:     2rem;
-
-  // Layout
-  --container-max: 1280px;
-  --container-pad: clamp(1.5rem, 5vw, 5rem);
+  --container-max: 1180px;
+  --container-pad: clamp(1.25rem, 4vw, 3rem);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
 }
 
-// ─── Circuit Background Mixin ─────────────────────────────────────────────────
-// Usage: @include circuit-bg;
-@mixin circuit-bg($opacity: 0.04) {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpath d='M10 10h80M10 50h80M10 90h80M10 10v80M50 10v80M90 10v80' stroke='%23c5a47e' stroke-width='0.5' fill='none'/%3E%3Ccircle cx='10' cy='10' r='2' fill='%23c5a47e'/%3E%3Ccircle cx='50' cy='10' r='2' fill='%23c5a47e'/%3E%3Ccircle cx='90' cy='10' r='2' fill='%23c5a47e'/%3E%3Ccircle cx='10' cy='50' r='2' fill='%23c5a47e'/%3E%3Ccircle cx='50' cy='50' r='2' fill='%23c5a47e'/%3E%3Ccircle cx='90' cy='50' r='2' fill='%23c5a47e'/%3E%3Ccircle cx='10' cy='90' r='2' fill='%23c5a47e'/%3E%3Ccircle cx='50' cy='90' r='2' fill='%23c5a47e'/%3E%3Ccircle cx='90' cy='90' r='2' fill='%23c5a47e'/%3E%3C/svg%3E");
-  background-size: 100px 100px;
-  background-repeat: repeat;
-  opacity: $opacity;
+@mixin circuit-bg($opacity: 0.055) {
+  background-image:
+    linear-gradient(rgba(245, 179, 60, $opacity) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 179, 60, $opacity) 1px, transparent 1px),
+    radial-gradient(circle at 12px 12px, rgba(245, 179, 60, $opacity + 0.02) 1.5px, transparent 2px);
+  background-size: 48px 48px, 48px 48px, 48px 48px;
 }
 
-// ─── Button Mixin ─────────────────────────────────────────────────────────────
+@mixin section-shell {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-section);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    @include circuit-bg(0.035);
+    mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.35), black);
+  }
+}
+
+@mixin eyebrow {
+  color: var(--color-accent);
+  font-size: var(--text-label);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@mixin gold-line {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin-top: 1rem;
+  background: var(--color-accent);
+}
+
 @mixin btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2rem;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 48px;
+  padding: 0.9rem 1.35rem;
   background: var(--color-accent);
-  color: #0a0a0a;
+  color: #0d0d0d;
   font-family: var(--font-body);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border: none;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 
   &:hover {
-    opacity: 0.85;
-    transform: translateY(-1px);
+    background: var(--color-accent-deep);
+    border-color: var(--color-accent-deep);
+    transform: translateY(-2px);
   }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.55;
     cursor: not-allowed;
     transform: none;
   }
@@ -82,20 +108,20 @@
 @mixin btn-outline {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  background: transparent;
-  color: var(--color-accent);
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.9rem 1.35rem;
+  color: var(--color-text-primary);
   font-family: var(--font-body);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border: 1px solid var(--color-accent);
-  cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, transform 0.2s ease;
 
   &:hover {
-    background: var(--color-accent);
-    color: #0a0a0a;
+    border-color: var(--color-border-strong);
+    transform: translateY(-2px);
   }
 }

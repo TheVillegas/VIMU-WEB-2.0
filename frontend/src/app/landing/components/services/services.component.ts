@@ -5,7 +5,8 @@ interface Service {
   number: string;
   title: string;
   description: string;
-  icon: 'code' | 'layers' | 'zap';
+  icon: 'web' | 'system' | 'automation' | 'cloud';
+  tags: string[];
 }
 
 @Component({
@@ -19,21 +20,31 @@ export class ServicesComponent {
   services: Service[] = [
     {
       number: '01',
-      title: 'Desarrollo Web',
-      description: 'Landing pages, páginas informativas y tiendas online. Tecnologías probadas que cargan rápido y rankean bien en Google.',
-      icon: 'code'
+      title: 'Sitios web y landing pages',
+      description: 'Presencia digital r\u00e1pida, clara y preparada para convertir visitas en conversaciones reales.',
+      icon: 'web',
+      tags: ['PYMEs', 'Emprendedores', 'SEO base']
     },
     {
       number: '02',
-      title: 'Sistemas a Medida',
-      description: 'Paneles de control, CRMs, sistemas de gestión operacional. Automatizaciones que se adaptan a cómo trabajás vos, no al revés.',
-      icon: 'layers'
+      title: 'Sistemas internos a medida',
+      description: 'Herramientas para ordenar operaci\u00f3n, usuarios, reportes y flujos que hoy viven repartidos entre Excel, WhatsApp y correos.',
+      icon: 'system',
+      tags: ['Web apps', 'Paneles', 'Gesti\u00f3n']
     },
     {
       number: '03',
-      title: 'Automatizaciones',
-      description: 'Integraciones entre herramientas, bots de WhatsApp, flujos de trabajo automatizados. Menos tiempo en tareas repetitivas.',
-      icon: 'zap'
+      title: 'Automatizaci\u00f3n de procesos',
+      description: 'Conectamos formularios, calendarios, notificaciones y tareas repetitivas para reducir trabajo manual.',
+      icon: 'automation',
+      tags: ['IA \u00fatil', 'APIs', 'Flujos']
+    },
+    {
+      number: '04',
+      title: 'Infraestructura lista para crecer',
+      description: 'Publicamos con criterio: costos controlados, despliegue simple y base t\u00e9cnica mantenible.',
+      icon: 'cloud',
+      tags: ['Deploy', 'Monitoreo', 'Escalable']
     }
   ];
 }

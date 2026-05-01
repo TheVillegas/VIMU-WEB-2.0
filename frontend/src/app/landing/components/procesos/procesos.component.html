@@ -1,19 +1,22 @@
 <section class="procesos" id="procesos">
   <div class="procesos__inner container">
-
     <header class="procesos__header">
-      <h2 class="procesos__title">Cómo trabajamos</h2>
+      <p class="section-kicker">Metodolog&iacute;a</p>
+      <h2 class="section-title">C&oacute;mo trabajamos<br /><span class="dim">en cada proyecto.</span></h2>
+      <div class="section-line"></div>
+      <p class="section-copy">Todos entran por fase 1. Desde ah&iacute;, cada etapa aparece como avance natural: entender, dise&ntilde;ar, construir y acompa&ntilde;ar.</p>
     </header>
 
-    <div class="procesos__grid">
-      @for (paso of pasos; track paso.number) {
-        <div class="procesos__card">
-          <span class="procesos__card-number">{{ paso.number }}</span>
-          <h3 class="procesos__card-title">{{ paso.title }}</h3>
-          <p class="procesos__card-description">{{ paso.description }}</p>
-        </div>
+    <div class="procesos__timeline">
+      @for (paso of pasos; track paso.number; let index = $index) {
+        <article class="procesos__step" [style.--step]="index">
+          <div class="procesos__circle">{{ paso.number }}</div>
+          <span class="procesos__badge">{{ paso.badge }}</span>
+          <h3>{{ paso.title }}</h3>
+          <p>{{ paso.description }}</p>
+          <strong>{{ paso.hint }}</strong>
+        </article>
       }
     </div>
-
   </div>
 </section>

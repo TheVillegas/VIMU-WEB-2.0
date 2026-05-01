@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-interface Proyecto {
+interface Cliente {
   title: string;
-  tags: string[];
+  sector: string;
+  status: string;
   description: string;
+  accent: 'lab' | 'wellness';
+  image: string;
+  tags: string[];
 }
 
 @Component({
@@ -15,21 +19,24 @@ interface Proyecto {
   styleUrl: './proyectos.component.scss'
 })
 export class ProyectosComponent {
-  proyectos: Proyecto[] = [
+  clientes: Cliente[] = [
     {
-      title: 'Plataforma SaaS de gestión',
-      tags: ['Angular', 'Node.js', 'PostgreSQL'],
-      description: 'Sistema de administración de clientes con panel multi-usuario y reportes en tiempo real.'
+      title: 'Laboratorio AsisTec',
+      sector: 'Digitalizaci\u00f3n - Laboratorio',
+      status: 'Cliente activo',
+      description: 'Digitalizaci\u00f3n de procesos internos para registro de muestras en laboratorios, trazabilidad operativa y orden del flujo de trabajo.',
+      accent: 'lab',
+      image: 'assets/images/cliente-asistec.jpeg',
+      tags: ['Registro de muestras', 'Procesos internos', 'Laboratorio']
     },
     {
-      title: 'Automatización de procesos',
-      tags: ['Python', 'n8n', 'APIs'],
-      description: 'Integración de CRM con sistemas contables y notificaciones automáticas por WhatsApp.'
-    },
-    {
-      title: 'E-commerce a medida',
-      tags: ['Next.js', 'Stripe', 'SSR'],
-      description: 'Tienda online con catálogo dinámico, carrito y pasarela de pago integrada.'
+      title: 'Chronos 360',
+      sector: 'Sitio web - Servicios integrales',
+      status: 'Cliente activo',
+      description: 'Presencia digital para servicios de psicolog\u00eda, coaching y preparaci\u00f3n f\u00edsica, con foco en claridad, reserva y confianza.',
+      accent: 'wellness',
+      image: 'assets/images/cliente-chronos.jpeg',
+      tags: ['Psicolog\u00eda', 'Coaching', 'Preparaci\u00f3n f\u00edsica']
     }
   ];
 }

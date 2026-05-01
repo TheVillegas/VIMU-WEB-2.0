@@ -1,21 +1,35 @@
-<section class="hero">
+<section class="hero" id="inicio">
+  <div class="hero__glow" aria-hidden="true"></div>
+
   <div class="hero__inner container">
-    <img src="assets/logos/vimu-logo-primary.svg" alt="VIMU DEVS" class="hero__logo" />
-    <div class="hero__content">
+    <div class="hero__copy">
+      <p class="hero__badge"><span></span> Software claro &middot; IA &uacute;til &middot; procesos ordenados</p>
+
       <h1 class="hero__headline">
-        Convertimos ideas en sistemas simples de usar
+        Convertimos ideas<br />
+        en sistemas <span>simples</span><br />
+        <em>de usar.</em>
       </h1>
+
       <p class="hero__sub">
-        Desarrollamos websites, sistemas y automatizaciones para negocios que quieren vender más y organizar sus operaciones.
+        Dise&ntilde;amos software web, automatizaciones y herramientas internas para que tu negocio trabaje mejor: sin humo, sin tecnicismos innecesarios y con acompa&ntilde;amiento real en cada etapa.
       </p>
-      <button type="button" class="hero__cta" (click)="scrollToContact()">
-        Hablemos de tu proyecto
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
-        </svg>
-      </button>
+
+      <div class="hero__actions">
+        <button type="button" class="hero__cta" (click)="scrollToContact()">Cotiza con nosotros &rarr;</button>
+        <button type="button" class="hero__secondary" (click)="scrollTo('servicios')">Ver servicios</button>
+      </div>
     </div>
+
+    <aside class="hero__brand" aria-label="Identidad VIMU DEVS">
+      <img src="assets/logos/vimu-logo-compact-transparent.png" alt="VIMU DEVS - propuesta de marca" />
+    </aside>
+
+    <dl class="hero__stats" aria-label="Estado actual de VIMU DEVS">
+      <div><dt>2</dt><dd>Clientes activos</dd></div>
+      <div><dt>100%</dt><dd>Soluciones a medida</dd></div>
+      <div><dt>IA</dt><dd>Aceleraci&oacute;n con criterio t&eacute;cnico</dd></div>
+      <div><dt>CL</dt><dd>Basados en Chile</dd></div>
+    </dl>
   </div>
 </section>

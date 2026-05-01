@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 
 interface Paso {
   number: string;
+  badge: string;
   title: string;
   description: string;
+  hint: string;
 }
 
 @Component({
@@ -18,23 +20,31 @@ export class ProcesosComponent {
   pasos: Paso[] = [
     {
       number: '01',
-      title: 'Diagnóstico',
-      description: 'Entendemos el problema real, los objetivos y las restricciones. Así evitamos construir algo que no resuelve nada.'
+      badge: 'T\u00fa participas',
+      title: 'Diagn\u00f3stico',
+      description: 'Aterrizamos el problema real, objetivos, restricciones y prioridades. Sin esta base, cualquier c\u00f3digo es humo caro.',
+      hint: 'Reuni\u00f3n inicial - sin costo'
     },
     {
       number: '02',
-      title: 'Diseño',
-      description: 'Definimos arquitectura, flujo y stack antes de escribir código. El proyecto arranca con dirección clara.'
+      badge: 'T\u00fa validas',
+      title: 'Dise\u00f1o',
+      description: 'Definimos flujo, pantallas, arquitectura y alcance antes de construir. Se valida lo importante cuando todav\u00eda es barato cambiarlo.',
+      hint: 'Prototipo + feedback'
     },
     {
       number: '03',
-      title: 'Desarrollo',
-      description: 'Avanzamos en ciclos cortos con entregas revisables. Los desvíos se detectan cuando son baratos de corregir.'
+      badge: 'T\u00fa apruebas',
+      title: 'Construcci\u00f3n',
+      description: 'Avanzamos por hitos cortos, con entregas visibles y decisiones t\u00e9cnicas explicadas en lenguaje claro.',
+      hint: 'Entregas frecuentes'
     },
     {
       number: '04',
-      title: 'Entrega',
-      description: 'Publicamos, monitoreamos y acompañamos. El proyecto sigue siendo útil a medida que tu negocio crece.'
+      badge: 'Seguimos contigo',
+      title: 'Acompa\u00f1amiento',
+      description: 'Publicamos, monitoreamos y ajustamos. Un sistema no termina cuando se sube: empieza cuando tu equipo lo usa.',
+      hint: 'Soporte post-lanzamiento'
     }
   ];
 }

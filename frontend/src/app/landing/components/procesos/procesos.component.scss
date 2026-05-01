@@ -1,63 +1,117 @@
+@use '../../../../styles/variables' as *;
+
+@keyframes phaseReveal {
+  0%, 12% { opacity: 0.38; transform: translateY(12px); }
+  22%, 78% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0.72; transform: translateY(0); }
+}
+
+@keyframes phasePulse {
+  0%, 100% { box-shadow: 0 0 0 7px rgba(245, 179, 60, 0.05); }
+  45% { box-shadow: 0 0 0 12px rgba(245, 179, 60, 0.16); }
+}
+
+@keyframes lineProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 :host { display: block; }
 
 .procesos {
-  padding-block: var(--space-section);
-  background: var(--color-surface);
+  @include section-shell;
+  background: var(--color-bg);
 
-  &__header {
-    margin-bottom: var(--space-block);
-  }
+  &__inner { position: relative; z-index: 1; }
+  &__header { margin-bottom: var(--space-block); }
 
-  &__title {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1;
-    color: var(--color-text-primary);
-  }
-
-  &__grid {
+  &__timeline {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
 
-  &__card {
-    padding: 2rem;
-    border: 1px solid var(--color-border);
-    border-radius: 1rem;
-    background: var(--color-bg);
-    transition: border-color 0.3s ease;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: 9%;
+      right: 9%;
+      height: 1px;
+      transform-origin: left;
+    }
 
-    &:hover {
-      border-color: var(--color-accent);
+    &::before { background: var(--color-border); }
+    &::after {
+      background: linear-gradient(90deg, var(--color-accent), rgba(245, 179, 60, 0.16));
+      animation: lineProgress 8s ease-in-out infinite;
     }
   }
 
-  &__card-number {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: var(--text-label);
-    font-weight: 600;
-    letter-spacing: 0.15em;
+  &__step {
+    --delay: calc(var(--step) * 1.1s);
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding-inline: 0.5rem;
+    animation: phaseReveal 8s ease-in-out infinite;
+    animation-delay: var(--delay);
+
+    h3 { margin-top: 0.9rem; color: var(--color-text-primary); font-size: 1rem; }
+    p { margin-top: 0.55rem; color: var(--color-text-muted); font-size: 0.82rem; line-height: 1.65; }
+    strong { display: block; margin-top: 0.75rem; color: var(--color-accent); font-size: 0.72rem; font-weight: 700; }
+  }
+
+  &__circle {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    margin-inline: auto;
+    border: 1px solid var(--color-accent);
+    border-radius: 999px;
+    background: var(--color-bg);
     color: var(--color-accent);
-    margin-bottom: 1rem;
+    font-size: 0.8rem;
+    font-weight: 900;
+    animation: phasePulse 8s ease-in-out infinite;
+    animation-delay: var(--delay);
   }
 
-  &__card-title {
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--color-text-primary);
-    margin-bottom: 0.75rem;
+  &__badge {
+    display: inline-block;
+    margin-top: 1.25rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    padding: 0.18rem 0.55rem;
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
 
-  &__card-description {
-    font-size: 0.9375rem;
-    color: var(--color-text-secondary);
-    line-height: 1.7;
-    margin: 0;
+  @media (max-width: 920px) {
+    &__timeline {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      &::before, &::after { top: 0; bottom: 0; left: 32px; right: auto; width: 1px; height: auto; transform-origin: top; }
+      &::after { animation-name: lineProgressY; }
+    }
+
+    &__step { display: grid; grid-template-columns: 64px 1fr; column-gap: 1.2rem; text-align: left; padding-inline: 0; }
+    &__step > *:not(.procesos__circle) { grid-column: 2; }
+    &__circle { grid-row: 1 / span 4; }
+    &__badge { width: fit-content; margin-top: 0; }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__step, &__circle, &__timeline::after { animation: none; }
+    &__step { opacity: 1; transform: none; }
+  }
+}
+
+@keyframes lineProgressY {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
 }

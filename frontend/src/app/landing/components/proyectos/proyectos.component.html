@@ -1,21 +1,29 @@
-<section class="proyectos" id="proyectos">
-  <div class="proyectos__inner container">
+<section class="clientes" id="clientes">
+  <div class="clientes__inner container">
+    <header class="clientes__header">
+      <p class="section-kicker">Clientes en curso</p>
+      <h2 class="section-title">Trabajo real,<br /><span class="dim">sin inventar vitrina.</span></h2>
+      <div class="section-line"></div>
+      <p class="section-copy">Todav&iacute;a no vendemos un cementerio de &ldquo;casos de &eacute;xito&rdquo;. Estamos trabajando con dos clientes reales y preferimos mostrar eso con honestidad.</p>
+    </header>
 
-    <h2 class="proyectos__title">Proyectos que lanzamos</h2>
-
-    <div class="proyectos__grid">
-      @for (proyecto of proyectos; track proyecto.title) {
-        <article class="proyectos__card">
-          <div class="proyectos__tags">
-            @for (tag of proyecto.tags; track tag) {
-              <span class="proyectos__tag">{{ tag }}</span>
-            }
+    <div class="clientes__grid">
+      @for (cliente of clientes; track cliente.title) {
+        <article class="clientes__card">
+          <div class="clientes__visual" [class]="'clientes__visual clientes__visual--' + cliente.accent">
+            <img [src]="cliente.image" [alt]="cliente.title" />
+            <span class="clientes__status">{{ cliente.status }}</span>
           </div>
-          <h3 class="proyectos__card-title">{{ proyecto.title }}</h3>
-          <p class="proyectos__card-desc">{{ proyecto.description }}</p>
+          <div class="clientes__body">
+            <p>{{ cliente.sector }}</p>
+            <h3>{{ cliente.title }}</h3>
+            <span>{{ cliente.description }}</span>
+            <div class="clientes__tags">
+              @for (tag of cliente.tags; track tag) { <small>{{ tag }}</small> }
+            </div>
+          </div>
         </article>
       }
     </div>
-
   </div>
 </section>

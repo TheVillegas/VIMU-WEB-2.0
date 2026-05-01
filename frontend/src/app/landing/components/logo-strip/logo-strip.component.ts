@@ -9,6 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './logo-strip.component.scss'
 })
 export class LogoStripComponent {
-  //En vez de titulos de las tecnologias, poner los logos oficiales
-  logos = ['Angular', 'Astro', 'React', 'PostgreSQL', 'Python', 'Node.js', 'TypeScript', 'PostgreSQL'];
+  logos = ['Angular', 'TypeScript', 'Node.js', 'PostgreSQL', 'APIs', 'Automatizaci\u00f3n', 'IA Generativa', 'Deploy'];
 }

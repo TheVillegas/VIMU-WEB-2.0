@@ -18,10 +18,11 @@ export class NavbarComponent {
   ) {}
 
   navLinks = [
-    { label: 'Servicios',  fragment: 'servicios' },
-    { label: 'Procesos',   fragment: 'procesos' },
-    { label: 'Nosotros',   fragment: 'nosotros' },
-    { label: 'Contacto',   fragment: 'contacto' }
+    { label: 'Servicios', fragment: 'servicios' },
+    { label: 'Proceso', fragment: 'procesos' },
+    { label: 'Clientes', fragment: 'clientes' },
+    { label: 'Nosotros', fragment: 'porque' },
+    { label: 'Contacto', fragment: 'contacto' }
   ];
 
   @HostListener('window:scroll')

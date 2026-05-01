@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface Razon {
-  icon: 'check' | 'code' | 'clock' | 'shield';
+  icon: string;
   title: string;
   description: string;
 }
@@ -17,24 +17,24 @@ interface Razon {
 export class PorqueComponent {
   razones: Razon[] = [
     {
-      icon: 'check',
-      title: 'Sin humo ni tecnicismos',
-      description: 'Te explicamos qué hacemos, por qué lo hacemos así, y qué resultado podés esperar. Sin promesas vacías.'
+      icon: '01',
+      title: 'Te hablamos en claro',
+      description: 'Explicamos decisiones t\u00e9cnicas en lenguaje simple. La tecnolog\u00eda tiene que servir al negocio, no intimidarlo.'
     },
     {
-      icon: 'code',
-      title: 'Código que se puede mantener',
-      description: 'Escribimos software pensando en el largo plazo. Documentado, testeable y fácil de escalar.'
+      icon: '02',
+      title: 'Dise\u00f1amos a medida',
+      description: 'No forzamos tu operaci\u00f3n a entrar en una plantilla. Partimos desde c\u00f3mo trabaj\u00e1s hoy y hacia d\u00f3nde quer\u00e9s crecer.'
     },
     {
-      icon: 'clock',
-      title: 'Compromisos reales',
-      description: 'Plazos acordados, alcance claro y comunicación constante. Si algo cambia, te avisamos antes.'
+      icon: '03',
+      title: 'Usamos IA con criterio',
+      description: 'La IA acelera investigaci\u00f3n, prototipos y desarrollo, pero la direcci\u00f3n t\u00e9cnica la pone una persona responsable.'
     },
     {
-      icon: 'shield',
-      title: 'Seguridad desde el diseño',
-      description: 'Pensamos en seguridad desde el inicio: autenticación, cifrado y protección de datos incluidos.'
+      icon: '04',
+      title: 'Acompa\u00f1amiento real',
+      description: 'Preferimos menos clientes y mejor seguimiento. El foco es construir una relaci\u00f3n t\u00e9cnica que aguante el tiempo.'
     }
   ];
 }
