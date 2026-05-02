@@ -1,43 +1,127 @@
-// ─── VIMU WEB 2.0 — Design System Tokens ────────────────────────────────────
-// Estética: "The Silent Authority"
-// Dark monochromatic, high precision, hierarchy through space + typography.
-// ─────────────────────────────────────────────────────────────────────────────
-
 :root {
-  // Colors
-  --color-bg:             #131313;
-  --color-surface:        #1a1a1a;
-  --color-surface-high:   #2a2a2a;
-  --color-surface-higher: #353534;
-  --color-text-primary:   #e5e2e1;
-  --color-text-secondary: #c7c6c6;
-  --color-text-muted:     #94979e;
-  --color-border:         #474747;
+  /* Brand tokens from logo proposal */
+  --color-bg: #0d0d0d;
+  --color-surface: #141414;
+  --color-surface-soft: #1a1a1a;
+  --color-surface-high: #232323;
+  --color-text-primary: #f8f7f4;
+  --color-text-secondary: #c9c5bd;
+  --color-text-muted: #817d76;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(245, 179, 60, 0.28);
+  --color-accent: #f5b33c;
+  --color-accent-deep: #d99318;
+  --color-accent-glow: rgba(245, 179, 60, 0.14);
+  --color-success: #25d366;
 
-  // Accent — brand gold from VIMU DEVS SpA card
-  --color-accent:      #c5a47e;
-  --color-accent-glow: rgba(197, 164, 126, 0.12);
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Poppins', sans-serif;
 
-  // Typography
-  // NOTE: 'Plus Jakarta Sans' is a Neue Regrade substitute.
-  // Replace with licensed Neue Regrade when available.
-  --font-heading: 'Plus Jakarta Sans', sans-serif;
-  --font-body:    'Inter', sans-serif;
+  --text-hero: clamp(3rem, 6.8vw, 6.1rem);
+  --text-section: clamp(2.25rem, 5vw, 4.5rem);
+  --text-heading: clamp(1.45rem, 2.4vw, 2.2rem);
+  --text-body: 1rem;
+  --text-label: 0.72rem;
 
-  // Type scale (desktop)
-  --text-hero:    11.5625rem; // ~185px
-  --text-section: 5.375rem;  // ~86px
-  --text-heading: 3.3125rem; // ~53px
-  --text-display: 2.0625rem; // ~33px
-  --text-body:    1.25rem;   // ~20px
-  --text-label:   0.8125rem; // ~13px
+  --space-section: clamp(5rem, 9vw, 8rem);
+  --space-block: clamp(2.5rem, 5vw, 4.5rem);
+  --space-gap: 1.5rem;
 
-  // Spacing rhythm
-  --space-section: 10rem;
-  --space-block:   5rem;
-  --space-gap:     2rem;
+  --container-max: 1180px;
+  --container-pad: clamp(1.25rem, 4vw, 3rem);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.75rem;
+}
 
-  // Layout
-  --container-max: 1280px;
-  --container-pad: clamp(1.5rem, 5vw, 5rem);
+@mixin circuit-bg($opacity: 0.055) {
+  background-image:
+    linear-gradient(rgba(245, 179, 60, $opacity) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 179, 60, $opacity) 1px, transparent 1px),
+    radial-gradient(circle at 12px 12px, rgba(245, 179, 60, $opacity + 0.02) 1.5px, transparent 2px);
+  background-size: 48px 48px, 48px 48px, 48px 48px;
+}
+
+@mixin section-shell {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-section);
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    @include circuit-bg(0.035);
+    mask-image: linear-gradient(to bottom, black, rgba(0, 0, 0, 0.35), black);
+  }
+}
+
+@mixin eyebrow {
+  color: var(--color-accent);
+  font-size: var(--text-label);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+@mixin gold-line {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin-top: 1rem;
+  background: var(--color-accent);
+}
+
+@mixin btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-height: 48px;
+  padding: 0.9rem 1.35rem;
+  background: var(--color-accent);
+  color: #0d0d0d;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background: var(--color-accent-deep);
+    border-color: var(--color-accent-deep);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+@mixin btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.9rem 1.35rem;
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-border-strong);
+    transform: translateY(-2px);
+  }
 }

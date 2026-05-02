@@ -1,2 +1,0 @@
--- 03-seed-admin.sql
--- Intentionally empty: admin bootstrap runs via `npm run seed:admin`.

@@ -1,0 +1,38 @@
+﻿<section class="porque" id="porque">
+  <div class="porque__inner container">
+    <header class="porque__header">
+      <p class="section-kicker">Compromiso y herramientas reales</p>
+      <h2 class="section-title">No somos una agencia<br /><span class="dim">m&aacute;s.</span></h2>
+      <div class="section-line"></div>
+    </header>
+
+    <div class="porque__layout">
+      <div class="porque__copy">
+        <p>
+          VIMU DEVS nace desde una idea simple: no necesit&aacute;s un equipo enorme para construir software serio. Necesit&aacute;s foco, criterio t&eacute;cnico y una metodolog&iacute;a donde cada decisi&oacute;n tenga sentido.
+        </p>
+
+        <div class="porque__list">
+          @for (razon of razones; track razon.title) {
+            <article class="porque__item">
+              <span>{{ razon.icon }}</span>
+              <div><h3>{{ razon.title }}</h3><p>{{ razon.description }}</p></div>
+            </article>
+          }
+        </div>
+      </div>
+
+      <aside class="porque__brand-card">
+        <div class="porque__portrait">
+          <img src="assets/images/matias-villegas-founder.jpg" alt="Mat&iacute;as Villegas, fundador de VIMU DEVS" />
+        </div>
+        <div>
+          <strong>Mat&iacute;as Villegas</strong>
+          <span>Founder & Lead Engineer</span>
+          <p>Direcci&oacute;n t&eacute;cnica cercana: estrategia, dise&ntilde;o, desarrollo y acompa&ntilde;amiento real.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+

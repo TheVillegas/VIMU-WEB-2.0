@@ -1,95 +1,67 @@
 :host { display: block; }
 
 .footer {
-  background: var(--color-bg);
   border-top: 1px solid var(--color-border);
-  padding: 5rem 0 3rem;
+  background: var(--color-bg);
+  padding: 4rem 0 2.4rem;
 
   &__grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 4rem;
+    gap: clamp(2rem, 6vw, 5rem);
+    margin-bottom: 3rem;
+  }
 
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
+  &__brand {
+    img {
+      width: min(260px, 100%);
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: var(--color-text-muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.04em;
     }
   }
 
-  &__brand-name {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-    color: var(--color-text-primary);
-    margin-bottom: 1rem;
-  }
+  &__col {
+    display: grid;
+    align-content: start;
+    gap: 0.6rem;
 
-  &__brand-tagline {
-    font-size: var(--text-label);
-    color: var(--color-text-muted);
-    line-height: 1.8;
-    letter-spacing: 0.04em;
-  }
+    h4 {
+      color: var(--color-accent);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 0.45rem;
+    }
 
-  &__col-title {
-    font-family: var(--font-body);
-    font-size: var(--text-label);
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-text-secondary);
-    margin-bottom: 1.5rem;
-  }
+    a {
+      color: var(--color-text-muted);
+      font-size: 0.84rem;
+      transition: color 0.2s ease;
 
-  &__list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.875rem;
-  }
-
-  &__link {
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    transition: color 0.2s ease;
-
-    &:hover { color: var(--color-text-primary); }
+      &:hover { color: var(--color-text-primary); }
+    }
   }
 
   &__bottom {
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-surface-high);
     display: flex;
-    align-items: center;
     justify-content: space-between;
     gap: 1rem;
-
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--color-border);
+    color: rgba(129, 125, 118, 0.72);
+    font-size: 0.72rem;
   }
 
-  &__copy {
-    font-size: var(--text-label);
-    color: var(--color-text-muted);
-    letter-spacing: 0.06em;
-  }
-
-  &__legal {
-    display: flex;
-    gap: 2rem;
-  }
-
-  &__legal-link {
-    font-size: var(--text-label);
-    color: var(--color-text-muted);
-    letter-spacing: 0.06em;
-    transition: color 0.2s ease;
-
-    &:hover { color: var(--color-text-secondary); }
+  @media (max-width: 760px) {
+    &__grid { grid-template-columns: 1fr; }
+    &__bottom { flex-direction: column; }
   }
 }

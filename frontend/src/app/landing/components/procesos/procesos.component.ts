@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 interface Paso {
   number: string;
-  icon: 'search' | 'design' | 'build' | 'support';
+  badge: string;
   title: string;
   description: string;
+  hint: string;
 }
 
 @Component({
   selector: 'app-procesos',
-  standalone: false,
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './procesos.component.html',
   styleUrl: './procesos.component.scss'
 })
@@ -17,27 +20,31 @@ export class ProcesosComponent {
   pasos: Paso[] = [
     {
       number: '01',
-      icon: 'search',
-      title: 'Diagnóstico',
-      description: 'Antes de proponer cualquier solución, entendemos el problema real. Relevamos objetivos, restricciones técnicas y dolores operativos para que lo que se construya tenga sentido desde el inicio.'
+      badge: 'T\u00fa participas',
+      title: 'Diagn\u00f3stico',
+      description: 'Aterrizamos el problema real, objetivos, restricciones y prioridades. Sin esta base, cualquier c\u00f3digo es humo caro.',
+      hint: 'Reuni\u00f3n inicial - sin costo'
     },
     {
       number: '02',
-      icon: 'design',
-      title: 'Diseño',
-      description: 'Definimos arquitectura y flujo de usuario antes de escribir código. Stack, estructura y experiencia se diseñan juntos para que el proyecto arranque con dirección clara y espacio para crecer.'
+      badge: 'T\u00fa validas',
+      title: 'Dise\u00f1o',
+      description: 'Definimos flujo, pantallas, arquitectura y alcance antes de construir. Se valida lo importante cuando todav\u00eda es barato cambiarlo.',
+      hint: 'Prototipo + feedback'
     },
     {
       number: '03',
-      icon: 'build',
-      title: 'Construcción',
-      description: 'Avanzamos en ciclos cortos con entregas revisables. Cada iteración se valida antes de continuar: así los desvíos se detectan cuando son baratos de corregir, no al final.'
+      badge: 'T\u00fa apruebas',
+      title: 'Construcci\u00f3n',
+      description: 'Avanzamos por hitos cortos, con entregas visibles y decisiones t\u00e9cnicas explicadas en lenguaje claro.',
+      hint: 'Entregas frecuentes'
     },
     {
       number: '04',
-      icon: 'support',
-      title: 'Acompañamiento',
-      description: 'No desaparecemos en el deploy. Monitoreamos, ajustamos y evolucionamos el producto junto con tu negocio para que lo entregado siga siendo útil a medida que crecés.'
+      badge: 'Seguimos contigo',
+      title: 'Acompa\u00f1amiento',
+      description: 'Publicamos, monitoreamos y ajustamos. Un sistema no termina cuando se sube: empieza cuando tu equipo lo usa.',
+      hint: 'Soporte post-lanzamiento'
     }
   ];
 }

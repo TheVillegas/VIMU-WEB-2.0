@@ -1,92 +1,57 @@
 <section class="contact" id="contacto">
   <div class="contact__inner container">
+    <header class="contact__header">
+      <p class="section-kicker">Cotizaci&oacute;n</p>
+      <h2 class="section-title">Cu&eacute;ntanos sobre<br /><span class="dim">tu proyecto.</span></h2>
+      <div class="section-line"></div>
+      <p class="section-copy">Complet&aacute; lo b&aacute;sico. Te respondemos personalmente para entender alcance, urgencia y presupuesto realista.</p>
+    </header>
 
-    <div class="contact__text">
-      <span class="contact__eyebrow">Hablemos</span>
-      <h2 class="contact__title">
-        ¿Listo para construir<br>
-        <span class="contact__title-muted">algo que funcione?</span>
-      </h2>
-      <p class="contact__sub">
-        Si querés conversar sobre un proyecto, una modernización o una idea con IA, estos son los canales directos.
-      </p>
+    <div class="contact__layout">
+      <aside class="contact__promise">
+        <ul>
+          <li><span>01</span> Respuesta dentro de 48 horas h&aacute;biles.</li>
+          <li><span>02</span> Primera conversaci&oacute;n sin costo ni compromiso.</li>
+          <li><span>03</span> Propuesta seg&uacute;n objetivo, alcance y presupuesto.</li>
+          <li><span>04</span> Trato directo con quien dise&ntilde;a y construye.</li>
+        </ul>
+
+        <div class="contact__direct">
+          <p>Medios de comunicaci&oacute;n</p>
+          <a href="https://wa.me/56988621058" target="_blank" rel="noopener">&#128242;</a>
+          <a href="https://instagram.com/vimudevs" target="_blank" rel="noopener">&#128247;</a>
+          <a href="mailto:administracion&#64;vimudevs.com">&#128140;</a>
+        </div>
+      </aside>
+
+      @if (status === 'success') {
+        <div class="contact__success"><span>OK</span><h3>Solicitud enviada</h3><p>Recibimos tu mensaje. Te contactamos en las pr&oacute;ximas 48 horas h&aacute;biles.</p></div>
+      } @else {
+        <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
+          <div class="contact__row">
+            <div class="contact__field">
+              <label class="contact__label" for="nombre">Nombre completo *</label>
+              <input id="nombre" class="contact__input" type="text" formControlName="nombre" placeholder="Tu nombre" autocomplete="name" />
+              @if (form.get('nombre')?.invalid && form.get('nombre')?.touched) { <span class="contact__error">Ingres&aacute; tu nombre.</span> }
+            </div>
+            <div class="contact__field">
+              <label class="contact__label" for="contacto-form">Email *</label>
+              <input id="contacto-form" class="contact__input" type="email" formControlName="contacto" placeholder="tu@email.com" autocomplete="email" />
+              @if (form.get('contacto')?.invalid && form.get('contacto')?.touched) { <span class="contact__error">Ingres&aacute; un email v&aacute;lido.</span> }
+            </div>
+          </div>
+
+          <div class="contact__field">
+            <label class="contact__label" for="project">&iquest;Qu&eacute; quer&eacute;s construir? *</label>
+            <textarea id="project" class="contact__input contact__input--textarea" formControlName="project" placeholder="Contanos qu&eacute; problema quer&eacute;s resolver, para qui&eacute;n y en qu&eacute; plazo..." rows="5"></textarea>
+            @if (form.get('project')?.invalid && form.get('project')?.touched) { <span class="contact__error">Describ&iacute; tu proyecto con un poco m&aacute;s de contexto.</span> }
+          </div>
+
+          @if (status === 'error') { <p class="contact__error-global">Hubo un problema al enviar. Si urge, escribinos por WhatsApp.</p> }
+          <button class="contact__submit" type="submit" [disabled]="status === 'loading'">{{ status === 'loading' ? 'Enviando...' : 'Enviar solicitud ->' }}</button>
+          <p class="contact__note">Respondemos dentro de 48 horas h&aacute;biles &middot; administracion@vimudevs.com</p>
+        </form>
+      }
     </div>
-
-    <div class="contact__channels">
-
-      <a href="mailto:proyectos&#64;vimudevs.com" class="contact__channel">
-        <div class="contact__channel-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect width="20" height="16" x="2" y="4" rx="2" />
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-          </svg>
-        </div>
-        <div class="contact__channel-meta">
-          <span class="contact__channel-label">Email</span>
-          <span class="contact__channel-value">proyectos&#64;vimudevs.com</span>
-        </div>
-        <svg class="contact__channel-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
-        </svg>
-      </a>
-
-      <a href="https://wa.me/56988621058" class="contact__channel contact__channel--wa">
-        <div class="contact__channel-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-          </svg>
-        </div>
-        <div class="contact__channel-meta">
-          <span class="contact__channel-label">WhatsApp</span>
-          <span class="contact__channel-value">+56 9 8862 1058</span>
-        </div>
-        <svg class="contact__channel-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
-        </svg>
-      </a>
-      <a href="https://instagram.com/vimudevs" class="contact__channel contact__channel--ig">
-        <div class="contact__channel-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect width="20" height="20" x="2" y="2" rx="6" />
-            <circle cx="12" cy="12" r="3" />
-            <circle cx="17.5" cy="6.5" r="1.5" />
-          </svg>
-        </div>
-        <div class="contact__channel-meta">
-          <span class="contact__channel-label">Instagram</span>
-          <span class="contact__channel-value">@vimudevs</span>
-        </div>
-        <svg class="contact__channel-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
-        </svg>
-      </a>
-
-      <div class="contact__cta-wrapper">
-        <a routerLink="/agendar" class="contact__cta">
-          Cotiza con nosotros
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14" />
-            <path d="m12 5 7 7-7 7" />
-          </svg>
-        </a>
-      </div>
-
-    </div>
-
-
-
   </div>
 </section>

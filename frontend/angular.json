@@ -39,6 +39,11 @@
               },
               {
                 "glob": "**/*",
+                "input": "src/assets/logos",
+                "output": "assets/logos"
+              },
+              {
+                "glob": "**/*",
                 "input": "public"
               },
               {
@@ -47,9 +52,7 @@
                 "output": "/"
               }
             ],
-            "styles": [
-              "src/styles.scss"
-            ]
+            "styles": ["src/styles.scss"]
           },
           "configurations": {
             "production": {
@@ -91,7 +94,10 @@
               "buildTarget": "frontend:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          }
         },
         "test": {
           "builder": "@angular/build:unit-test"

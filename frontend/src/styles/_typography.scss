@@ -1,58 +1,78 @@
-// ─── Global Typography Classes ────────────────────────────────────────────────
-// Only semantic classes used across multiple components.
-// Component-specific type styles live in each component's .scss.
-// ─────────────────────────────────────────────────────────────────────────────
-
 .t-hero {
   font-family: var(--font-heading);
-  font-size: clamp(4rem, 12vw, var(--text-hero));
+  font-size: var(--text-hero);
   font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.88;
+  letter-spacing: -0.055em;
+  line-height: 0.93;
 }
 
 .t-section {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 6vw, var(--text-section));
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 0.95;
+  font-size: var(--text-section);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
 }
 
 .t-heading {
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 4vw, var(--text-heading));
-  font-weight: 600;
+  font-size: var(--text-heading);
+  font-weight: 700;
   letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-
-.t-display {
-  font-family: var(--font-heading);
-  font-size: clamp(1.5rem, 2.5vw, var(--text-display));
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  line-height: 1.15;
 }
 
 .t-body {
   font-family: var(--font-body);
   font-size: var(--text-body);
   font-weight: 400;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 .t-label {
   font-family: var(--font-body);
   font-size: var(--text-label);
-  font-weight: 400;
-  letter-spacing: 0.12em;
+  font-weight: 800;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-// Layout utility
 .container {
   width: 100%;
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--container-pad);
+}
+
+.section-kicker {
+  color: var(--color-accent);
+  font-size: var(--text-label);
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-section);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  color: var(--color-text-primary);
+
+  .dim { color: rgba(248, 247, 244, 0.24); }
+  .gold { color: var(--color-accent); }
+}
+
+.section-line {
+  width: 44px;
+  height: 2px;
+  margin-block: 1rem 1.25rem;
+  background: var(--color-accent);
+}
+
+.section-copy {
+  max-width: 620px;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
 }
