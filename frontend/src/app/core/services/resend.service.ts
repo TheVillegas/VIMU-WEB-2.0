@@ -12,7 +12,7 @@ export interface ContactFormData {
   providedIn: 'root'
 })
 export class ResendService {
-  private readonly apiUrl = '/api/contact';
+  private readonly apiUrl = '/.netlify/functions/contact';
 
   constructor(private http: HttpClient) {}
 

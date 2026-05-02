@@ -174,7 +174,7 @@ app.post('/api/contact', contactRateLimit, async (req, res) => {
     await Promise.all([
       getResend().emails.send({
         from: 'VIMU DEVS <noreply@vimudevs.com>',
-        to: ['mvillalonga@vimudevs.com'],
+        to: ['matias.villegas.m@vimudevs.com'],
         subject: `Nuevo contacto: ${escapeHtml(name)}`,
         html: `
           <h2>Nuevo mensaje desde vimudevs.com</h2>
