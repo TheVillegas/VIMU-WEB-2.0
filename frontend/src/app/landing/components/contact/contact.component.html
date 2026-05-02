@@ -35,9 +35,9 @@
               @if (form.get('nombre')?.invalid && form.get('nombre')?.touched) { <span class="contact__error">Ingres&aacute; tu nombre.</span> }
             </div>
             <div class="contact__field">
-              <label class="contact__label" for="contacto-form">Email o WhatsApp *</label>
-              <input id="contacto-form" class="contact__input" type="text" formControlName="contacto" placeholder="tu@email.com o +56 9..." autocomplete="email" />
-              @if (form.get('contacto')?.invalid && form.get('contacto')?.touched) { <span class="contact__error">Ingres&aacute; un medio de contacto.</span> }
+              <label class="contact__label" for="contacto-form">Email *</label>
+              <input id="contacto-form" class="contact__input" type="email" formControlName="contacto" placeholder="tu@email.com" autocomplete="email" />
+              @if (form.get('contacto')?.invalid && form.get('contacto')?.touched) { <span class="contact__error">Ingres&aacute; un email v&aacute;lido.</span> }
             </div>
           </div>
 

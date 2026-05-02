@@ -8,35 +8,15 @@ export interface ContactFormData {
   project: string;
 }
 
-export interface ResendEmailResponse {
-  id: string;
-  from: string;
-  to: string[];
-  created_at: string;
-}
-
 @Injectable({
   providedIn: 'root'
 })
 export class ResendService {
-  private readonly apiUrl = 'https://api.resend.com/emails';
+  private readonly apiUrl = '/api/contact';
 
   constructor(private http: HttpClient) {}
 
-  sendContactForm(data: ContactFormData): Observable<ResendEmailResponse> {
-    const payload = {
-      from: 'VIMU DEVS <onboarding@resend.dev>',
-      to: ['mvillalonga@vimudevs.com'],
-      subject: `Nuevo contacto desde web: ${data.name}`,
-      html: `
-        <h2>Nuevo mensaje desde vimudevs.com</h2>
-        <p><strong>Nombre:</strong> ${data.name}</p>
-        <p><strong>Contacto:</strong> ${data.contact}</p>
-        <p><strong>Proyecto:</strong></p>
-        <p>${data.project}</p>
-      `
-    };
-
-    return this.http.post<ResendEmailResponse>(this.apiUrl, payload);
+  sendContactForm(data: ContactFormData): Observable<{ success: boolean }> {
+    return this.http.post<{ success: boolean }>(this.apiUrl, data);
   }
 }

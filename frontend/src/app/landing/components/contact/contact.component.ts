@@ -22,7 +22,7 @@ export class ContactComponent {
   ) {
     this.form = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(2)]],
-      contacto: ['', [Validators.required, Validators.minLength(5)]],
+      contacto: ['', [Validators.required, Validators.email]],
       project: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
@@ -39,7 +39,8 @@ export class ContactComponent {
         this.status = 'success';
         this.form.reset();
       },
-      error: () => {
+      error: (err: unknown) => {
+        console.error('[ContactComponent] Error al enviar el formulario:', err);
         this.status = 'error';
       }
     });
