@@ -173,7 +173,7 @@ app.post('/api/contact', contactRateLimit, async (req, res) => {
   try {
     await Promise.all([
       getResend().emails.send({
-        from: 'VIMU DEVS <onboarding@resend.dev>',
+        from: 'VIMU DEVS <noreply@vimudevs.com>',
         to: ['mvillalonga@vimudevs.com'],
         subject: `Nuevo contacto: ${escapeHtml(name)}`,
         html: `
@@ -185,7 +185,7 @@ app.post('/api/contact', contactRateLimit, async (req, res) => {
         `
       }),
       getResend().emails.send({
-        from: 'VIMU DEVS <onboarding@resend.dev>',
+        from: 'VIMU DEVS <noreply@vimudevs.com>',
         to: [contact],
         subject: 'Hemos recibido tu solicitud - VIMU DEVS',
         html: generateClientHTML(name)
